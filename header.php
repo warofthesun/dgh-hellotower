@@ -35,7 +35,7 @@
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
 		<?php // end of wordpress head ?>
-		<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+		<script src="https://kit.fontawesome.com/059e62f330.js" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 		<script>
       window.sr = ScrollReveal({ duration: 600, reset: true, easing: 'ease-in', scale: .98, distance:'50px'});
@@ -65,7 +65,7 @@
 						<?php wp_nav_menu(array(
     					         'container' => false,                           // remove nav container
     					         'container_class' => 'menu ',                 // class of container (should you choose to use it)
-    					         'menu' => __( 'The Main Menu', 'startertheme' ),  // nav name
+    					         'menu' => __( 'The Main Menu', 'dghtheme' ),  // nav name
     					         'menu_class' => 'nav top-nav ',               // adding custom nav class
     					         'theme_location' => 'main-nav',                 // where it's located in the theme
     					         'before' => '',                                 // before the menu
@@ -75,8 +75,21 @@
         			               'depth' => 0,                                   // limit the depth of the nav
     					         'fallback_cb' => ''                             // fallback function (if there is one)
 						)); ?>
-
+						<?php wp_nav_menu(array(
+    					         'container' => false,                           // remove nav container
+    					         'container_class' => 'menu ',                 // class of container (should you choose to use it)
+    					         'menu' => __( 'The Main Menu', 'dghtheme' ),  // nav name
+    					         'menu_class' => 'nav top-nav duplicate-nav',               // adding custom nav class
+    					         'theme_location' => 'main-nav',                 // where it's located in the theme
+    					         'before' => '',                                 // before the menu
+        			               'after' => '',                                  // after the menu
+        			               'link_before' => '',                            // before each link
+        			               'link_after' => '',                             // after each link
+        			               'depth' => 0,                                   // limit the depth of the nav
+    					         'fallback_cb' => ''                             // fallback function (if there is one)
+						)); ?>
 					</nav>
+
 					<div id="mobile-nav">
 						Menu <i class="fas fa-chevron-down"></i>
 					</div>

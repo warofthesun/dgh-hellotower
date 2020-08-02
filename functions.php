@@ -11,13 +11,17 @@ LAUNCH starter
 Let's get everything up and running.
 *********************/
 
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 function starter_ahoy() {
 
   //Allow editor style.
   add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
 
   // let's get language support going, if you need it
-  load_theme_textdomain( 'startertheme', get_template_directory() . '/library/translation' );
+  load_theme_textdomain( 'dghtheme', get_template_directory() . '/library/translation' );
 
   // USE THIS TEMPLATE TO CREATE CUSTOM POST TYPES EASILY
   require_once( 'library/custom-post-type.php' );
@@ -65,8 +69,8 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'starter-thumb-600', 600, 150, true );
-add_image_size( 'starter-thumb-300', 300, 100, true );
+add_image_size( 'dgh-thumb-600', 600, 150, true );
+add_image_size( 'dgh-thumb-300', 300, 100, true );
 add_image_size( 'gallery-image', 680, 450, true );
 
 /*
@@ -81,9 +85,9 @@ inside the thumbnail function.
 
 For example, to call the 300 x 100 sized image,
 we would use the function:
-<?php the_post_thumbnail( 'starter-thumb-300' ); ?>
+<?php the_post_thumbnail( 'dgh-thumb-300' ); ?>
 for the 600 x 150 image:
-<?php the_post_thumbnail( 'starter-thumb-600' ); ?>
+<?php the_post_thumbnail( 'dgh-thumb-600' ); ?>
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
@@ -94,8 +98,8 @@ add_filter( 'image_size_names_choose', 'starter_custom_image_sizes' );
 function starter_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'gallery-image' => __('Gallery Image'),
-        'starter-thumb-600' => __('600px by 150px'),
-        'starter-thumb-300' => __('300px by 100px'),
+        'dgh-thumb-600' => __('600px by 150px'),
+        'dgh-thumb-300' => __('300px by 100px'),
     ) );
 }
 
@@ -153,8 +157,8 @@ add_action( 'customize_register', 'starter_theme_customizer' );
 function starter_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
-		'name' => __( 'Sidebar 1', 'startertheme' ),
-		'description' => __( 'The first (primary) sidebar.', 'startertheme' ),
+		'name' => __( 'Sidebar 1', 'dghtheme' ),
+		'description' => __( 'The first (primary) sidebar.', 'dghtheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -171,8 +175,8 @@ function starter_register_sidebars() {
 
 	register_sidebar(array(
 		'id' => 'sidebar2',
-		'name' => __( 'Sidebar 2', 'startertheme' ),
-		'description' => __( 'The second (secondary) sidebar.', 'startertheme' ),
+		'name' => __( 'Sidebar 2', 'dghtheme' ),
+		'description' => __( 'The second (secondary) sidebar.', 'dghtheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -186,68 +190,6 @@ function starter_register_sidebars() {
 
 	*/
 } // don't remove this bracket!
-
-/*
- * Remove Original Tag Meta Box - courtesy of https://rudrastyh.com/wordpress/tag-metabox-like-categories.html
- */
-function rudr_post_tags_meta_box_remove() {
-	$id = 'tagsdiv-post_tag'; // you can find it in a page source code (Ctrl+U)
-	$post_type = 'post'; // remove only from post edit screen
-	$position = 'side';
-	remove_meta_box( $id, $post_type, $position );
-}
-add_action( 'admin_menu', 'rudr_post_tags_meta_box_remove');
-
-/*
- * Add Category style Tag box
- */
-function rudr_add_new_tags_metabox(){
-	$id = 'rudrtagsdiv-post_tag'; // it should be unique
-	$heading = 'Tags'; // meta box heading
-	$callback = 'rudr_metabox_content'; // the name of the callback function
-	$post_type = 'post';
-	$position = 'side';
-	$pri = 'default'; // priority, 'default' is good for us
-	add_meta_box( $id, $heading, $callback, $post_type, $position, $pri );
-}
-add_action( 'admin_menu', 'rudr_add_new_tags_metabox');
-
-/*
- * Fill
- */
- function rudr_metabox_content($post) {
- 		// get all blog post tags as an array of objects
- 		$all_tags = get_terms( array('taxonomy' => 'post_tag', 'hide_empty' => 0) );
- 		// get all tags assigned to a post
- 		$all_tags_of_post = get_the_terms( $post->ID, 'post_tag' );
-
- 		// create an array of post tags ids
- 		$ids = array();
- 		if ( $all_tags_of_post ) {
- 			foreach ($all_tags_of_post as $tag ) {
- 				$ids[] = $tag->term_id;
- 			}
- 		}
-
- 		// HTML
- 		echo '<div id="taxonomy-post_tag" class="categorydiv">';
- 		echo '<div id="tag-all" class="tabs-panel" style="display:block">';
- 		echo '<input type="hidden" name="tax_input[post_tag][]" value="0" />';
- 		echo '<ul>';
- 		foreach( $all_tags as $tag ){
- 			// unchecked by default
- 			$checked = "";
- 			// if an ID of a tag in the loop is in the array of assigned post tags - then check the checkbox
- 			if ( in_array( $tag->term_id, $ids ) ) {
- 				$checked = " checked='checked'";
- 			}
- 			$id = 'post_tag-' . $tag->term_id;
- 			echo "<li id='{$id}'>";
- 			echo "<label><input type='checkbox' name='tax_input[post_tag][]' id='in-$id'". $checked ." value='$tag->slug' /> $tag->name</label><br />";
- 			echo "</li>";
- 		}
- 		echo '</ul></div></div>'; // end HTML
- 	}
 
 
 /************* COMMENT LAYOUT *********************/
@@ -271,13 +213,13 @@ function starter_comments( $comment, $args, $depth ) {
         ?>
         <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
         <?php // end custom gravatar call ?>
-        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'startertheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'startertheme' ),'  ','') ) ?>
-        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'startertheme' )); ?> </a></time>
+        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'dghtheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'dghtheme' ),'  ','') ) ?>
+        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'dghtheme' )); ?> </a></time>
 
       </header>
       <?php if ($comment->comment_approved == '0') : ?>
         <div class="alert alert-info">
-          <p><?php _e( 'Your comment is awaiting moderation.', 'startertheme' ) ?></p>
+          <p><?php _e( 'Your comment is awaiting moderation.', 'dghtheme' ) ?></p>
         </div>
       <?php endif; ?>
       <section class="comment_content cf">
@@ -298,7 +240,7 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function starter_fonts() {
-  wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Lora:400,400i|Roboto:300,300i,400,400i,500,700,900');
+  wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Special+Elite&display=swap');
 }
 
 add_action('wp_enqueue_scripts', 'starter_fonts');

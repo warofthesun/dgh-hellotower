@@ -14,21 +14,21 @@ function custom_post() {
 	register_post_type( 'custom_type', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-			'name' => __( 'Custom Types', 'startertheme' ), /* This is the Title of the Group */
-			'singular_name' => __( 'Custom Post', 'startertheme' ), /* This is the individual type */
-			'all_items' => __( 'All Custom Posts', 'startertheme' ), /* the all items menu item */
-			'add_new' => __( 'Add New', 'startertheme' ), /* The add new menu item */
-			'add_new_item' => __( 'Add New Custom Type', 'startertheme' ), /* Add New Display Title */
-			'edit' => __( 'Edit', 'startertheme' ), /* Edit Dialog */
-			'edit_item' => __( 'Edit Post Types', 'startertheme' ), /* Edit Display Title */
-			'new_item' => __( 'New Post Type', 'startertheme' ), /* New Display Title */
-			'view_item' => __( 'View Post Type', 'startertheme' ), /* View Display Title */
-			'search_items' => __( 'Search Post Type', 'startertheme' ), /* Search Custom Type Title */
-			'not_found' =>  __( 'Nothing found in the Database.', 'startertheme' ), /* This displays if there are no entries yet */
-			'not_found_in_trash' => __( 'Nothing found in Trash', 'startertheme' ), /* This displays if there is nothing in the trash */
+			'name' => __( 'Custom Types', 'dghtheme' ), /* This is the Title of the Group */
+			'singular_name' => __( 'Custom Post', 'dghtheme' ), /* This is the individual type */
+			'all_items' => __( 'All Custom Posts', 'dghtheme' ), /* the all items menu item */
+			'add_new' => __( 'Add New', 'dghtheme' ), /* The add new menu item */
+			'add_new_item' => __( 'Add New Custom Type', 'dghtheme' ), /* Add New Display Title */
+			'edit' => __( 'Edit', 'dghtheme' ), /* Edit Dialog */
+			'edit_item' => __( 'Edit Post Types', 'dghtheme' ), /* Edit Display Title */
+			'new_item' => __( 'New Post Type', 'dghtheme' ), /* New Display Title */
+			'view_item' => __( 'View Post Type', 'dghtheme' ), /* View Display Title */
+			'search_items' => __( 'Search Post Type', 'dghtheme' ), /* Search Custom Type Title */
+			'not_found' =>  __( 'Nothing found in the Database.', 'dghtheme' ), /* This displays if there are no entries yet */
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'dghtheme' ), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example custom post type', 'startertheme' ), /* Custom Type Description */
+			'description' => __( 'This is the example custom post type', 'dghtheme' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -41,7 +41,9 @@ function custom_post() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
+			'show_in_rest' => true,
+   		'supports' => array('editor')
 		) /* end of options */
 	); /* end of register post type */
 
@@ -65,16 +67,16 @@ function custom_post() {
 		array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
-				'name' => __( 'Custom Categories', 'startertheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Custom Category', 'startertheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Custom Categories', 'startertheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Custom Categories', 'startertheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Custom Category', 'startertheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Custom Category:', 'startertheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Custom Category', 'startertheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Custom Category', 'startertheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Custom Category', 'startertheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Custom Category Name', 'startertheme' ) /* name title for taxonomy */
+				'name' => __( 'Custom Categories', 'dghtheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Custom Category', 'dghtheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Custom Categories', 'dghtheme' ), /* search title for taxomony */
+				'all_items' => __( 'All Custom Categories', 'dghtheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Custom Category', 'dghtheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Custom Category:', 'dghtheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Custom Category', 'dghtheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Custom Category', 'dghtheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Custom Category', 'dghtheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Custom Category Name', 'dghtheme' ) /* name title for taxonomy */
 			),
 			'show_admin_column' => true,
 			'show_ui' => true,
@@ -88,16 +90,16 @@ function custom_post() {
 		array('custom_type'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 		array('hierarchical' => false,    /* if this is false, it acts like tags */
 			'labels' => array(
-				'name' => __( 'Custom Tags', 'startertheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Custom Tag', 'startertheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Custom Tags', 'startertheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Custom Tags', 'startertheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Custom Tag', 'startertheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Custom Tag:', 'startertheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Custom Tag', 'startertheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Custom Tag', 'startertheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Custom Tag', 'startertheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Custom Tag Name', 'startertheme' ) /* name title for taxonomy */
+				'name' => __( 'Custom Tags', 'dghtheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Custom Tag', 'dghtheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Custom Tags', 'dghtheme' ), /* search title for taxomony */
+				'all_items' => __( 'All Custom Tags', 'dghtheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Custom Tag', 'dghtheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Custom Tag:', 'dghtheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Custom Tag', 'dghtheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Custom Tag', 'dghtheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Custom Tag', 'dghtheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Custom Tag Name', 'dghtheme' ) /* name title for taxonomy */
 			),
 			'show_admin_column' => true,
 			'show_ui' => true,

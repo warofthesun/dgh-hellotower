@@ -43,8 +43,8 @@ NAVIGATION STYLES
 			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
-				color: $white;
-				text-decoration: underline;
+				color: $black;
+				text-decoration: none;
 			}
 		}
 
@@ -120,6 +120,27 @@ NAVIGATION STYLES
 	li.current_page_ancestor {
 		a {}
 	}  /* end current highlighters */
+
+	&.duplicate-nav {
+		display: flex;
+		margin-top: -48px;
+
+		li:hover {
+			a {
+				&:hover, &:focus {
+					opacity: 1;
+					letter-spacing: .4px;
+				}
+			}
+		}
+
+		.current-menu-item {
+			a {
+					opacity: 1;
+					letter-spacing: .4px;
+			}
+		}
+	}
 
 } /* end .nav */
 

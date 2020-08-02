@@ -7,7 +7,7 @@ body {
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
-	background-color: $gray;
+	background-color: $white;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 }
@@ -39,7 +39,11 @@ style a page via class
 ********************/
 
 .rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
+.home {
+	#main {
+		width: 100%;
+	}
+}                          /* home page */
 .blog {}                          /* blog template page */
 .archive {}                       /* archive page */
 .date {}                          /* date archive page */
@@ -116,6 +120,7 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	font-family: $serif;
 	text-rendering: optimizelegibility;
 	font-weight: 500;
 	/*
@@ -130,8 +135,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 2.4em;
 	line-height: 1.333em;
+	color: $gray;
 }
 
 h2, .h2 {
@@ -161,14 +167,15 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	background-color: transparent;
 }
 
 	#logo {
 		margin: 0.75em 0;
+		text-align: center;
 
 		a {
-			color: $white;
+			color: $black;
 		}
 	}
 
@@ -212,11 +219,21 @@ and more scalable.
 	display: none;
 	height: 0;
 	transition: all .5s;
+	justify-content: center;
 
 	&.show {
 		opacity: 1;
 		display: flex;
 		height: 100%;
+	}
+
+	&.duplicate-nav {
+		display: none;
+		li {
+			a {
+				opacity: 0;
+			}
+		}
 	}
 
 	li {
@@ -225,9 +242,10 @@ and more scalable.
 
 		a {
 			display: block;
-			color: $white;
+			color: $link-color;
 			text-decoration: none;
 			padding: 0.75em;
+			font-family: $serif;
 
 		}
 
@@ -299,13 +317,13 @@ article {
 }
 
 		.hentry {
-			background-color: $white;
+			background-color: transparent;
 			border-radius: 3px;
-			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
+			margin-bottom: 0;
+			border: 0px solid $border-color;
 
 			header {
-				border-bottom: 1px solid $light-gray;
+				border-bottom: 0px solid $light-gray;
 				padding: 1.5em;
 			}
 
@@ -336,7 +354,28 @@ article {
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
+		.post {
+			&__container {
+				padding: 2em 0;
+
+				.header-category, .footer-tags {
+					margin: 0;
+					font-size: .8em;
+					text-transform: uppercase;
+					font-weight: bold;
+					color: $meta-gray;
+
+					a {
+						text-decoration: none;
+						color: $meta-gray;
+
+						&:hover, &:active {
+							color: $gray;
+						}
+					}
+				}
+			}
+		}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -346,9 +385,12 @@ article {
 
 		/* post meta */
 		.byline {
-			color: $meta-gray;
-			font-style: italic;
+			color: $black;
+			text-transform: uppercase;
 			margin: 0;
+			font-size: .7em;
+			margin-bottom: 1em;
+			font-weight: bold;
 
 			time {}
 		}
@@ -951,7 +993,7 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
+	background-color: $gray;
 	color: $light-gray;
 }
 

@@ -18,46 +18,11 @@ understand (what's inside the media queries). We also need to
 import the mixins file so SASS can understand the variables.
 ******************************************************************/
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Variables
-
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
-
-******************************************************************/
-/*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
 *********************/
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Typography
-
-Need to import a font or set of icons for your site? Drop them in
-here or just use this to establish your typographical grid. Or not.
-Do whatever you want to...GOSH!
-
-Helpful Articles:
-http://trentwalton.com/2012/06/19/fluid-type/
-http://ia.net/blog/responsive-typography-the-basics/
-http://alistapart.com/column/responsive-typography-is-a-physical-discipline
-
 ******************************************************************/
-/*********************
-FONT FACE (IN YOUR FACE)
-*********************/
 /*  To embed your own fonts, use this syntax
   and place your fonts inside the
   library/fonts folder. For more information
@@ -226,7 +191,7 @@ NAVIGATION STYLES
   /* highlight current page */
   /* end current highlighters */ }
   .nav ul {
-    background: #000;
+    background: #010208;
     margin-top: 0; }
   .nav li {
     /*
@@ -240,8 +205,8 @@ NAVIGATION STYLES
 			has the possibility of being a mobile device.
 			*/ }
       .nav li a:hover, .nav li a:focus {
-        color: #fff;
-        text-decoration: underline; }
+        color: #010208;
+        text-decoration: none; }
     .nav li ul.sub-menu,
     .nav li ul.children {
       margin-top: 0;
@@ -275,6 +240,17 @@ NAVIGATION STYLES
     .nav li:hover > ul {
       top: auto;
       visibility: visible; }
+  .nav.duplicate-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: -48px; }
+    .nav.duplicate-nav li:hover a:hover, .nav.duplicate-nav li:hover a:focus {
+      opacity: 1;
+      letter-spacing: .4px; }
+    .nav.duplicate-nav .current-menu-item a {
+      opacity: 1;
+      letter-spacing: .4px; }
 
 /* end .nav */
 /*********************
