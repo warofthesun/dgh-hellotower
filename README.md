@@ -1,4 +1,4 @@
-# Starter Theme
+# dgh
 Base line Wordpress theme.
 
 # H1

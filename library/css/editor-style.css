@@ -188,46 +188,11 @@ use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
   /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Variables
-
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
-
-******************************************************************/
-  /*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
 *********************/
-  /*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
   /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Typography
-
-Need to import a font or set of icons for your site? Drop them in
-here or just use this to establish your typographical grid. Or not.
-Do whatever you want to...GOSH!
-
-Helpful Articles:
-http://trentwalton.com/2012/06/19/fluid-type/
-http://ia.net/blog/responsive-typography-the-basics/
-http://alistapart.com/column/responsive-typography-is-a-physical-discipline
-
 ******************************************************************/
-  /*********************
-FONT FACE (IN YOUR FACE)
-*********************/
   /*  To embed your own fonts, use this syntax
   and place your fonts inside the
   library/fonts folder. For more information
@@ -343,10 +308,10 @@ BOX SIZING
   /* NOTE: value of "padding-box" is only supported in Gecko. So
 probably best not to use it. I mean, were you going to anyway? */
   width: 731px;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
   line-height: 1.5;
-  color: #5c6b80;
+  color: #010208;
   -webkit-font-smoothing: antialiased;
   /*********************
 	LINK STYLES
@@ -566,11 +531,11 @@ probably best not to use it. I mean, were you going to anyway? */
     -webkit-hyphenate-after: 3;
     hyphenate-lines: 3; }
   body#tinymce.wp-editor a, body#tinymce.wp-editor a:visited {
-    color: #2980b9;
+    color: #555555;
     /* on hover */
     /* on click */ }
     body#tinymce.wp-editor a:hover, body#tinymce.wp-editor a:focus, body#tinymce.wp-editor a:visited:hover, body#tinymce.wp-editor a:visited:focus {
-      color: #216693; }
+      color: #3e3e3e; }
     body#tinymce.wp-editor a:link, body#tinymce.wp-editor a:visited:link {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
   body#tinymce.wp-editor h1, body#tinymce.wp-editor .h1, body#tinymce.wp-editor h2, body#tinymce.wp-editor .h2, body#tinymce.wp-editor h3, body#tinymce.wp-editor .h3, body#tinymce.wp-editor h4, body#tinymce.wp-editor .h4, body#tinymce.wp-editor h5, body#tinymce.wp-editor .h5 {
@@ -599,27 +564,27 @@ probably best not to use it. I mean, were you going to anyway? */
     margin: 0 0 1.5em; }
   body#tinymce.wp-editor table {
     width: 100%;
-    border: 1px solid #eaedf2;
+    border: 1px solid #626679;
     margin-bottom: 1.5em; }
     body#tinymce.wp-editor table caption {
       margin: 0 0 7px;
       font-size: 0.75em;
-      color: #9fa6b4;
+      color: #B2B3B7;
       text-transform: uppercase;
       letter-spacing: 1px; }
   body#tinymce.wp-editor tr {
-    border-bottom: 1px solid #eaedf2; }
+    border-bottom: 1px solid #626679; }
     body#tinymce.wp-editor tr:nth-child(even) {
       background-color: #f8f9fa; }
   body#tinymce.wp-editor td {
     padding: 7px;
-    border-right: 1px solid #eaedf2; }
+    border-right: 1px solid #626679; }
     body#tinymce.wp-editor td:last-child {
       border-right: 0; }
   body#tinymce.wp-editor th {
     background-color: #f8f9fa;
-    border-bottom: 1px solid #eaedf2;
-    border-right: 1px solid #eaedf2; }
+    border-bottom: 1px solid #626679;
+    border-right: 1px solid #626679; }
     body#tinymce.wp-editor th:last-child {
       border-right: 0; }
   body#tinymce.wp-editor blockquote {
@@ -627,7 +592,7 @@ probably best not to use it. I mean, were you going to anyway? */
     padding: 0 0 0 0.75em;
     border-left: 3px solid #333;
     font-style: italic;
-    color: #9fa6b4; }
+    color: #B2B3B7; }
   body#tinymce.wp-editor dd {
     margin-left: 0;
     font-size: 0.9em;
@@ -647,7 +612,7 @@ probably best not to use it. I mean, were you going to anyway? */
     max-width: 100%;
     height: auto; }
   body#tinymce.wp-editor pre {
-    background: #000;
+    background: #010208;
     color: #f8f9fa;
     font-size: 0.9em;
     padding: 1.5em;

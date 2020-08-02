@@ -12,7 +12,17 @@
 							the_archive_description( '<div class="taxonomy-description">', '</div>' );
 							?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<?php $args = array(
+					       'post_type' => array('post','custom_type'),
+					       'post_status' => 'publish',
+					       'posts_per_page' => -1,
+					       'orderby' => 'date',
+					       'order' => 'DSC',
+					   );
+
+					   $loop = new WP_Query( $args );
+
+					   if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?> role="article">
 
@@ -20,11 +30,11 @@
 
 									<h3 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<p class="byline entry-meta vcard">
-										<?php printf( __( 'Posted', 'startertheme' ).' %1$s %2$s',
+										<?php printf( __( 'Posted', 'dghtheme' ).' %1$s %2$s',
                   							     /* the time the post was published */
                   							     '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
                        								/* the author of the post */
-                       								'<span class="by">'.__('by', 'startertheme').'</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
+                       								'<span class="by">'.__('by', 'dghtheme').'</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
                     							); ?>
 									</p>
 
@@ -32,7 +42,7 @@
 
 								<section class="entry-content ">
 
-									<?php the_post_thumbnail( 'starter-thumb-300' ); ?>
+									<?php the_post_thumbnail( 'dgh-thumb-300' ); ?>
 
 									<?php the_excerpt(); ?>
 
@@ -52,13 +62,13 @@
 
 									<article id="post-not-found" class="hentry ">
 										<header class="article-header">
-											<h1><?php _e( 'Oops, Post Not Found!', 'startertheme' ); ?></h1>
+											<h1><?php _e( 'Oops, Post Not Found!', 'dghtheme' ); ?></h1>
 										</header>
 										<section class="entry-content">
-											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'startertheme' ); ?></p>
+											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'dghtheme' ); ?></p>
 										</section>
 										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the archive.php template.', 'startertheme' ); ?></p>
+												<p><?php _e( 'This is the error message in the archive.php template.', 'dghtheme' ); ?></p>
 										</footer>
 									</article>
 

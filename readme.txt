@@ -1,4 +1,4 @@
-=== Starter Theme ===
+=== dgh ===
 Contributors: The SplitPixel
 Tested up to: 5.3
 Stable tag: 1.1

@@ -99,13 +99,13 @@ function starter_scripts_and_styles() {
   if (!is_admin()) {
 
 		// modernizr (without media query polyfill)
-		wp_register_script( 'starter-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', true );
+		wp_register_script( 'dgh-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', true );
 
 		// register main stylesheet
-		wp_register_style( 'starter-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+		wp_register_style( 'dgh-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
 		// ie-only style sheet
-		wp_register_style( 'starter-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+		wp_register_style( 'dgh-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -113,16 +113,16 @@ function starter_scripts_and_styles() {
     }
 
 		//adding scripts file in the footer
-	  wp_register_script( 'starter-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+	  wp_register_script( 'dgh-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
 
 
 
 		// enqueue styles and scripts
-		wp_enqueue_script( 'starter-modernizr' );
-		wp_enqueue_style( 'starter-stylesheet' );
-		wp_enqueue_style( 'starter-ie-only' );
+		wp_enqueue_script( 'dgh-modernizr' );
+		wp_enqueue_style( 'dgh-stylesheet' );
+		wp_enqueue_style( 'dgh-ie-only' );
 
-		$wp_styles->add_data( 'starter-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+		$wp_styles->add_data( 'dgh-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
 		/*
 		I recommend using a plugin to call jQuery
@@ -130,7 +130,7 @@ function starter_scripts_and_styles() {
 		and your site will load faster.
 		*/
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'starter-js' );
+		wp_enqueue_script( 'dgh-js' );
 
 
 
@@ -191,8 +191,8 @@ function starter_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'startertheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'startertheme' ) // secondary nav in footer
+			'main-nav' => __( 'The Main Menu', 'dghtheme' ),   // main nav in header
+			'footer-links' => __( 'Footer Links', 'dghtheme' ) // secondary nav in footer
 		)
 	);
 
@@ -203,7 +203,7 @@ function starter_theme_support() {
 		'comment-form'
 	) );
 
-} /* end starter theme support */
+} /* end dgh support */
 
 
 /*********************
@@ -212,7 +212,7 @@ RELATED POSTS FUNCTION
 
 // Related Posts Function (call using starter_related_posts(); )
 function starter_related_posts() {
-	echo '<ul id="starter-related-posts">';
+	echo '<ul id="dgh-related-posts">';
 	global $post;
 	$tags = wp_get_post_tags( $post->ID );
 	if($tags) {
@@ -230,7 +230,7 @@ function starter_related_posts() {
 				<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
 			<?php endforeach; }
 		else { ?>
-			<?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'startertheme' ) . '</li>'; ?>
+			<?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'dghtheme' ) . '</li>'; ?>
 		<?php }
 	}
 	wp_reset_postdata();
@@ -275,7 +275,7 @@ function starter_filter_ptags_on_images($content){
 function starter_excerpt_more($more) {
 	global $post;
 	// edit here if you like
-	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'startertheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'startertheme' ) .'</a>';
+	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'dghtheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'dghtheme' ) .'</a>';
 }
 
 
