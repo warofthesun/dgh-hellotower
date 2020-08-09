@@ -113,7 +113,7 @@ Uncomment  the below to exclude first section from animation
 
 //sr.reveal('.single-post:not(:first-child)');
 
-sr.reveal('.single-post');
+sr.reveal('.post__container');
 
 
 

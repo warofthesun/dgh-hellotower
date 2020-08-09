@@ -60,7 +60,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 */
 
 // RSS Dashboard Widget
-function starter_rss_dashboard_widget() {
+function dgh_rss_dashboard_widget() {
 	if ( function_exists( 'fetch_feed' ) ) {
 		// include_once( ABSPATH . WPINC . '/feed.php' );               // include the required file
 		$feed = fetch_feed( 'http://feeds.feedburner.com/wpcandy' );        // specify the source feed
@@ -87,8 +87,8 @@ function starter_rss_dashboard_widget() {
 }
 
 // calling all custom dashboard widgets
-function starter_custom_dashboard_widgets() {
-	wp_add_dashboard_widget( 'starter_rss_dashboard_widget', __( 'Recently on Themble (Customize on admin.php)', 'dghtheme' ), 'starter_rss_dashboard_widget' );
+function dgh_custom_dashboard_widgets() {
+	wp_add_dashboard_widget( 'dgh_rss_dashboard_widget', __( 'Recently on Themble (Customize on admin.php)', 'dghtheme' ), 'dgh_rss_dashboard_widget' );
 	/*
 	Be sure to drop any other created Dashboard Widgets
 	in this function and they will all load.
@@ -99,7 +99,7 @@ function starter_custom_dashboard_widgets() {
 // removing the dashboard widgets
 add_action( 'wp_dashboard_setup', 'disable_default_dashboard_widgets' );
 // adding any custom widgets
-add_action( 'wp_dashboard_setup', 'starter_custom_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'dgh_custom_dashboard_widgets' );
 
 
 /************* CUSTOM LOGIN PAGE *****************/
@@ -108,20 +108,20 @@ add_action( 'wp_dashboard_setup', 'starter_custom_dashboard_widgets' );
 
 //Updated to proper 'enqueue' method
 //http://codex.wordpress.org/Plugin_API/Action_Reference/login_enqueue_scripts
-function starter_login_css() {
-	wp_enqueue_style( 'starter_login_css', get_template_directory_uri() . '/library/css/login.css', false );
+function dgh_login_css() {
+	wp_enqueue_style( 'dgh_login_css', get_template_directory_uri() . '/library/css/login.css', false );
 }
 
 // changing the logo link from wordpress.org to your site
-function starter_login_url() {  return home_url(); }
+function dgh_login_url() {  return home_url(); }
 
 // changing the alt text on the logo to show your site name
-function starter_login_title() { return get_option( 'blogname' ); }
+function dgh_login_title() { return get_option( 'blogname' ); }
 
 // calling it only on the login page
-add_action( 'login_enqueue_scripts', 'starter_login_css', 10 );
-add_filter( 'login_headerurl', 'starter_login_url' );
-add_filter( 'login_headertitle', 'starter_login_title' );
+add_action( 'login_enqueue_scripts', 'dgh_login_css', 10 );
+add_filter( 'login_headerurl', 'dgh_login_url' );
+add_filter( 'login_headertitle', 'dgh_login_title' );
 
 
 /************* CUSTOMIZE ADMIN *******************/
@@ -134,11 +134,11 @@ you like.
 */
 
 // Custom Backend Footer
-function starter_custom_admin_footer() {
+function dgh_custom_admin_footer() {
 	_e( '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/starter" target="_blank">starter</a>.', 'dghtheme' );
 }
 
 // adding it to the admin area
-add_filter( 'admin_footer_text', 'starter_custom_admin_footer' );
+add_filter( 'admin_footer_text', 'dgh_custom_admin_footer' );
 
 ?>

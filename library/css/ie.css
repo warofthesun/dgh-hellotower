@@ -23,29 +23,6 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Typography
 ******************************************************************/
-/*  To embed your own fonts, use this syntax
-  and place your fonts inside the
-  library/fonts folder. For more information
-  on embedding fonts, go to:
-  http://www.fontsquirrel.com/
-  Be sure to remove the comment brackets.
-*/
-/*  @font-face {
-      font-family: 'Font Name';
-      src: url('library/fonts/font-name.eot');
-      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-*/
-/*
-The following is based of Typebase:
-https://github.com/devinhunt/typebase.css
-I've edited it a bit, but it's a nice starting point.
-*/
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
@@ -146,6 +123,12 @@ POSTS & CONTENT STYLES
 *********************/
 /* entry content */
 .entry-content {
+  max-width: 85%;
+  margin: 0 auto;
+  margin-top: -5vh;
+  background: #F4F4F1;
+  position: relative;
+  z-index: 99;
   /* at this larger size, we can start to align images */ }
   .entry-content .alignleft, .entry-content img.alignleft {
     margin-right: 1.5em;
@@ -162,6 +145,10 @@ POSTS & CONTENT STYLES
     clear: both; }
 
 /* end .entry-content */
+.article-header, .article-footer {
+  max-width: 85%;
+  margin: 0 auto; }
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -260,15 +247,24 @@ SIDEBARS & ASIDES
   /* margin-top: 2.2em; */ }
 
 .widgettitle {
-  border-bottom: 2px solid #444;
   margin-bottom: 0.75em; }
+  .widgettitle::after {
+    content: "";
+    margin-top: .5em;
+    border-bottom: 1px dotted #B2B3B7;
+    display: block;
+    width: 20%; }
 
 .widget {
   padding: 0 10px;
   margin: 2.2em 0; }
   .widget ul li {
     margin-bottom: 0.75em;
+    padding-left: .5em;
     /* deep nesting */ }
+    .widget ul li a {
+      text-decoration: none;
+      font-weight: 500; }
     .widget ul li ul {
       margin-top: 0.75em;
       padding-left: 1em; }

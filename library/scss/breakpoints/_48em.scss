@@ -69,7 +69,12 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-
+	max-width: 85%;
+	margin: 0 auto;
+	margin-top: -5vh;
+	background: $white;
+	position: relative;
+	z-index: 99;
 
 	/* at this larger size, we can start to align images */
 	.alignleft, img.alignleft {
@@ -90,6 +95,11 @@ POSTS & CONTENT STYLES
 	}
 
 } /* end .entry-content */
+
+.article-header, .article-footer {
+	max-width: 85%;
+	margin: 0 auto;
+}
 
 /*********************
 FOOTER STYLES

@@ -23,7 +23,7 @@ if ( post_password_required() ) {
           'style'             => 'div',
           'short_ping'        => true,
           'avatar_size'       => 40,
-          'callback'          => 'starter_comments',
+          'callback'          => 'dgh_comments',
           'type'              => 'all',
           'reply_text'        => __('Reply', 'dghtheme'),
           'page'              => '',

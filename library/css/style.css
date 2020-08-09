@@ -433,29 +433,6 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Typography
 ******************************************************************/
-/*  To embed your own fonts, use this syntax
-  and place your fonts inside the
-  library/fonts folder. For more information
-  on embedding fonts, go to:
-  http://www.fontsquirrel.com/
-  Be sure to remove the comment brackets.
-*/
-/*  @font-face {
-      font-family: 'Font Name';
-      src: url('library/fonts/font-name.eot');
-      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
-      font-weight: normal;
-      font-style: normal;
-  }
-*/
-/*
-The following is based of Typebase:
-https://github.com/devinhunt/typebase.css
-I've edited it a bit, but it's a nice starting point.
-*/
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
@@ -1751,7 +1728,7 @@ a, a:visited {
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: "Special Elite", cursive;
+  font-family: "Special Elite", serif;
   text-rendering: optimizelegibility;
   font-weight: 500;
   /*
@@ -1777,7 +1754,10 @@ h3, .h3 {
 
 h4, .h4 {
   font-size: 1.1em;
-  font-weight: 700; }
+  font-weight: 700;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #626679; }
 
 h5, .h5 {
   font-size: 0.846em;
@@ -1868,7 +1848,7 @@ and more scalable.
       color: #555555;
       text-decoration: none;
       padding: 0.75em;
-      font-family: "Special Elite", cursive; }
+      font-family: "Special Elite", serif; }
     .nav li ul.sub-menu li a,
     .nav li ul.children li a {
       padding-left: 30px; }
@@ -1908,6 +1888,8 @@ article .hero--image img {
 /* post by id (i.e. post-3) */
 .post__container {
   padding: 2em 0; }
+  .post__container:first-child {
+    padding-top: 0; }
   .post__container .header-category, .post__container .footer-tags {
     margin: 0;
     font-size: .8em;
@@ -1923,6 +1905,9 @@ article .hero--image img {
 /* general post style */
 /* general article on a page style */
 /* general style on an attatchment */
+.sticky {
+  background-color: red; }
+
 /* sticky post style */
 /* hentry class */
 /* style by category (i.e. category-videos) */
@@ -2316,6 +2301,12 @@ POSTS & CONTENT STYLES
 *********************/
   /* entry content */
   .entry-content {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-top: -5vh;
+    background: #F4F4F1;
+    position: relative;
+    z-index: 99;
     /* at this larger size, we can start to align images */ }
     .entry-content .alignleft, .entry-content img.alignleft {
       margin-right: 1.5em;
@@ -2331,6 +2322,9 @@ POSTS & CONTENT STYLES
       display: block;
       clear: both; }
   /* end .entry-content */
+  .article-header, .article-footer {
+    max-width: 85%;
+    margin: 0 auto; }
   /*********************
 FOOTER STYLES
 *********************/
@@ -2431,14 +2425,23 @@ SIDEBARS & ASIDES
   .sidebar {
     /* margin-top: 2.2em; */ }
   .widgettitle {
-    border-bottom: 2px solid #444;
     margin-bottom: 0.75em; }
+    .widgettitle::after {
+      content: "";
+      margin-top: .5em;
+      border-bottom: 1px dotted #B2B3B7;
+      display: block;
+      width: 20%; }
   .widget {
     padding: 0 10px;
     margin: 2.2em 0; }
     .widget ul li {
       margin-bottom: 0.75em;
+      padding-left: .5em;
       /* deep nesting */ }
+      .widget ul li a {
+        text-decoration: none;
+        font-weight: 500; }
       .widget ul li ul {
         margin-top: 0.75em;
         padding-left: 1em; }

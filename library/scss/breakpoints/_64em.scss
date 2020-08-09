@@ -153,8 +153,15 @@ SIDEBARS & ASIDES
 }
 
 	.widgettitle {
-		border-bottom: 2px solid #444;
 		margin-bottom: 0.75em;
+
+		&::after {
+			content: "";
+			margin-top: .5em;
+			border-bottom: 1px dotted $meta-gray;
+			display: block;
+			width: 20%;
+		}
 	}
 
 	.widget {
@@ -164,10 +171,14 @@ SIDEBARS & ASIDES
 		ul {
 			li {
 				margin-bottom: 0.75em;
+				padding-left: .5em;
 
 				&:first-child {}
 				&:last-child {}
-				a {}
+				a {
+					text-decoration: none;
+					font-weight: 500;
+				}
 				/* deep nesting */
 
 				ul {

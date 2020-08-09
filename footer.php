@@ -14,7 +14,7 @@
     					'link_before' => '',                            // before each link
     					'link_after' => '',                             // after each link
     					'depth' => 0,                                   // limit the depth of the nav
-    					'fallback_cb' => 'starter_footer_links_fallback'  // fallback function
+    					'fallback_cb' => 'dgh_footer_links_fallback'  // fallback function
 						)); ?>
 					</nav>
 

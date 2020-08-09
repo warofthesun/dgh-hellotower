@@ -1,6 +1,6 @@
 <?php
 
-function starter_head_cleanup() {
+function dgh_head_cleanup() {
 	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
@@ -18,9 +18,9 @@ function starter_head_cleanup() {
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
 	// remove WP version from css
-	add_filter( 'style_loader_src', 'starter_remove_wp_ver_css_js', 9999 );
+	add_filter( 'style_loader_src', 'dgh_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
-	add_filter( 'script_loader_src', 'starter_remove_wp_ver_css_js', 9999 );
+	add_filter( 'script_loader_src', 'dgh_remove_wp_ver_css_js', 9999 );
 
 } /* end starter head cleanup */
 
@@ -56,24 +56,24 @@ function rw_title( $title, $sep, $seplocation ) {
 } // end better title
 
 // remove WP version from RSS
-function starter_rss_version() { return ''; }
+function dgh_rss_version() { return ''; }
 
 // remove WP version from scripts
-function starter_remove_wp_ver_css_js( $src ) {
+function dgh_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;
 }
 
 // remove injected CSS for recent comments widget
-function starter_remove_wp_widget_recent_comments_style() {
+function dgh_remove_wp_widget_recent_comments_style() {
 	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
 		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
 	}
 }
 
 // remove injected CSS from recent comments widget
-function starter_remove_recent_comments_style() {
+function dgh_remove_recent_comments_style() {
 	global $wp_widget_factory;
 	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
 		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
@@ -81,7 +81,7 @@ function starter_remove_recent_comments_style() {
 }
 
 // remove injected CSS from gallery
-function starter_gallery_style($css) {
+function dgh_gallery_style($css) {
 	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 }
 
@@ -91,7 +91,7 @@ SCRIPTS & ENQUEUEING
 *********************/
 
 // loading modernizr and jquery, and reply script
-function starter_scripts_and_styles() {
+function dgh_scripts_and_styles() {
 
 
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
@@ -146,7 +146,7 @@ THEME SUPPORT
 *********************/
 
 // Adding WP 3+ Functions & Theme Support
-function starter_theme_support() {
+function dgh_theme_support() {
 
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support( 'post-thumbnails' );
@@ -210,8 +210,8 @@ function starter_theme_support() {
 RELATED POSTS FUNCTION
 *********************/
 
-// Related Posts Function (call using starter_related_posts(); )
-function starter_related_posts() {
+// Related Posts Function (call using dgh_related_posts(); )
+function dgh_related_posts() {
 	echo '<ul id="dgh-related-posts">';
 	global $post;
 	$tags = wp_get_post_tags( $post->ID );
@@ -242,7 +242,7 @@ PAGE NAVI
 *********************/
 
 // Numeric Page Navi (built into the theme by default)
-function starter_page_navi() {
+function dgh_page_navi() {
   global $wp_query;
   $bignum = 999999999;
   if ( $wp_query->max_num_pages <= 1 )
@@ -267,12 +267,12 @@ RANDOM CLEANUP ITEMS
 *********************/
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-function starter_filter_ptags_on_images($content){
+function dgh_filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
 // This removes the annoying […] to a Read More link
-function starter_excerpt_more($more) {
+function dgh_excerpt_more($more) {
 	global $post;
 	// edit here if you like
 	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'dghtheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'dghtheme' ) .'</a>';
