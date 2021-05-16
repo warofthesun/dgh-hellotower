@@ -1,3 +1,4 @@
+<!-- ARTICLE LAYOUT -->
 <header class="article-header">
 
   <p class="byline entry-meta vcard">

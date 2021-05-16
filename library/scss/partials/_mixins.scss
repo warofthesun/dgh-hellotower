@@ -40,6 +40,24 @@ USAGE: @include transition(all 0.2s ease-in-out);
   }
 }
 
+@mixin background-darken($color) {
+	&:first-child {
+		background-color: $white;
+	}
+	$darken-color: $color; 
+	$step: 2; 
+	
+	
+	@while $step <=6  {
+	
+	&:nth-child(#{$step}) {
+			background-color: darken($darken-color, ($step * 2%));
+	}
+	
+	$step: $step + 1;
+	}
+}
+
 /*********************
 CSS3 GRADIENTS
 Be careful with these since they can

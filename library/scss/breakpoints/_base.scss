@@ -33,6 +33,12 @@ img {
 	}
 }
 
+.wp-block-cover p.wp-block-cover-text {
+	color: $white;
+}
+
+
+
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -42,6 +48,12 @@ style a page via class
 .home {
 	#main {
 		width: 100%;
+	}
+	
+	.photo_post {
+		.entry-content {
+			display: none;
+		}
 	}
 }                          /* home page */
 .blog {}                          /* blog template page */
@@ -333,6 +345,7 @@ article {
 			footer {
 				padding: 1.5em;
 				border-top: 1px solid $light-gray;
+				clear: both;
 
 				p {
 					margin: 0;
@@ -355,14 +368,20 @@ article {
 
 		.archive-title {}
 
-		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
 		.post {
 			&__container {
 				padding: 2em 0;
+				border-top: 2px solid $white;
 
 				&:first-child {
 					padding-top: 0;
+				}
+				
+				@include background-darken($white);
+				
+				article {
+					background-color: inherit;
 				}
 
 				.header-category, .footer-tags {
@@ -383,11 +402,11 @@ article {
 				}
 			}
 		}            /* general post style */
+		
+		
 		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {
-			background-color: red;
-		}          /* sticky post style */
+		.attachment {}      /* general style on an attachment */
+		.sticky {}          /* sticky post style */
 		.hentry {}          /* hentry class */
 		.category-slug {}   /* style by category (i.e. category-videos) */
 		.tag-slug {}        /* style by tag (i.e. tag-news) */
@@ -479,7 +498,7 @@ article {
 				padding: 0 0 0 0.75em;
 				border-left: 3px solid $accent;
 				font-style: italic;
-				color: $meta-gray;
+				color: $gray;
 
 				&:before {}
 
@@ -634,10 +653,12 @@ PAGE NAVI STYLES
 
 .pagination,
 .wp-prev-next {
-	margin: 1.5em 0;
+	margin: 0;
 }
 	.pagination{
     text-align: center;
+		background: darken($white, 10%);
+		font-family: fontawesome;
 
     ul {
       display: inline-block;
@@ -654,7 +675,6 @@ PAGE NAVI STYLES
       float: left;
       display: inline;
       overflow: hidden;
-      border-right: 1px solid $gray;
     }
 
     a, span {
@@ -667,7 +687,7 @@ PAGE NAVI STYLES
       padding: 0.75em;
       min-width: 1em;
       display: block;
-      color: $accent;
+      color: $meta-gray;
 
       &:hover, &:focus {
       	background-color: $accent;

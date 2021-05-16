@@ -32,6 +32,10 @@ section,
 summary {
   display: block; }
 
+.wp-block-image figcaption {
+  font-style: italic;
+  margin-top: 0; }
+
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
@@ -229,7 +233,8 @@ menu {
 ol,
 ul {
   padding: 0;
-  list-style-type: none; }
+  list-style-type: normal;
+  margin-left: 2em; }
 
 /*
  * Corrects list images handled incorrectly in IE7.
@@ -1301,7 +1306,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  color: #F4F4F1;
+  color: #fbfbfb;
   font-size: 0.9em;
   font-size: 34px;
   line-height: 34px;
@@ -1313,7 +1318,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   -webkit-transition: background-color 0.14s ease-in-out;
   transition: background-color 0.14s ease-in-out; }
   .accent-btn:hover, .comment-reply-link:hover, #submit:hover, .accent-btn:focus, .comment-reply-link:focus, #submit:focus {
-    color: #F4F4F1;
+    color: #fbfbfb;
     text-decoration: none;
     outline: none; }
   .accent-btn:active, .comment-reply-link:active, #submit:active {
@@ -1456,7 +1461,7 @@ textarea,
   .field.is-invalid {
     color: #fbe3e4;
     border-color: #fbe3e4;
-    background-color: #F4F4F1;
+    background-color: #fbfbfb;
     background-position: 99% center;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
@@ -1496,7 +1501,7 @@ textarea,
   .field.is-valid {
     color: #e6efc2;
     border-color: #e6efc2;
-    background-color: #F4F4F1;
+    background-color: #fbfbfb;
     background-position: 99% center;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDRERkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDRFMEYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MzQ0NERERjA0QjExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERFRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7olkTQAAAfhJREFUeNqklU9oE0EUhzdroWjw0tBeWlDxkEaIp55TsCU9VKIgCrHBelA8CQ1Kr1WPbZrQ3gqtQqvGqxpQc2jBk6BIIaAGD4qNCKURpDSKiPi98gLDsJt//uBjsztvfnk7895sIPAw6/joGMThFJyAXn2+A+9gA57/TaY/eU0OeBgfhGm4DiGnsb7DAszxBz/NAdcKjMJLuNWCqagHbsscN5+L+hmH4QkMOe1L5jzFfNA2PgT34ajTuY7AGuZB0/hmh5m+gS0r8xv1zRvg+gGCHZiOwnF4DP3iB3sQkYxPd2C6CWfhB9Xwlus5+K1j4jXuaq3a+gM1H9OPcAa+7q9lPidZJqHbiIm7Wg22rsEI7FrPSzAMX/T+ADyAKSsu7Fr1KplehLvwCs5DvfBf65p+MypqRbO1FXK9utH4/QKuaqYTsG3E3INJv00Q46px3+XxanJ/Ute2/vqP4FKDza2KcdljIKdnhS0xXYULTaqmLMZFn8FFSFtvt6x70ExFCS5oUXspq2ssa7oEl1swFa+CGFdgtkHgPDyDKy02zyxNU6lXRUZb1EuHYayNNs+Yh5B0WQo+/8fpJnNTZFuzz2OpjoQ2QruSOQlMy35fEGmEGMxY9e1brxobw7TkWA1h6xfckUPb+JhGoE/Hpfvew7qUld/H9J8AAwDpw3WYrxcZ3QAAAABJRU5ErkJggg==);
@@ -1632,7 +1637,7 @@ body {
   font-size: 100%;
   line-height: 1.5;
   color: #010208;
-  background-color: #F4F4F1;
+  background-color: #fbfbfb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -1657,6 +1662,9 @@ img {
   #inner-footer .nav li {
     border-bottom: 0px; }
 
+.wp-block-cover p.wp-block-cover-text {
+  color: #fbfbfb; }
+
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -1664,6 +1672,9 @@ style a page via class
 /* for sites that are read right to left (i.e. hebrew) */
 .home #main {
   width: 100%; }
+
+.home .photo_post .entry-content {
+  display: none; }
 
 /* home page */
 /* blog template page */
@@ -1874,7 +1885,8 @@ article .hero--image img {
     padding: 1.5em; }
   .hentry footer {
     padding: 1.5em;
-    border-top: 1px solid #f8f9fa; }
+    border-top: 1px solid #f8f9fa;
+    clear: both; }
     .hentry footer p {
       margin: 0; }
 
@@ -1884,12 +1896,26 @@ article .hero--image img {
 .entry-title {
   margin: 0; }
 
-/* want to style individual post classes? Booya! */
 /* post by id (i.e. post-3) */
 .post__container {
-  padding: 2em 0; }
+  padding: 2em 0;
+  border-top: 2px solid #fbfbfb; }
   .post__container:first-child {
     padding-top: 0; }
+  .post__container:first-child {
+    background-color: #fbfbfb; }
+  .post__container:nth-child(2) {
+    background-color: #f1f1f1; }
+  .post__container:nth-child(3) {
+    background-color: #ececec; }
+  .post__container:nth-child(4) {
+    background-color: #e7e7e7; }
+  .post__container:nth-child(5) {
+    background-color: #e2e2e2; }
+  .post__container:nth-child(6) {
+    background-color: gainsboro; }
+  .post__container article {
+    background-color: inherit; }
   .post__container .header-category, .post__container .footer-tags {
     margin: 0;
     font-size: .8em;
@@ -1904,10 +1930,7 @@ article .hero--image img {
 
 /* general post style */
 /* general article on a page style */
-/* general style on an attatchment */
-.sticky {
-  background-color: red; }
-
+/* general style on an attachment */
 /* sticky post style */
 /* hentry class */
 /* style by category (i.e. category-videos) */
@@ -1962,7 +1985,7 @@ article .hero--image img {
     padding: 0 0 0 0.75em;
     border-left: 3px solid #333;
     font-style: italic;
-    color: #B2B3B7; }
+    color: #626679; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;
@@ -2047,13 +2070,15 @@ PAGE NAVI STYLES
 ******************************************************************/
 .pagination,
 .wp-prev-next {
-  margin: 1.5em 0; }
+  margin: 0; }
 
 .pagination {
-  text-align: center; }
+  text-align: center;
+  background: #e2e2e2;
+  font-family: fontawesome; }
   .pagination ul {
     display: inline-block;
-    background-color: #F4F4F1;
+    background-color: #fbfbfb;
     white-space: nowrap;
     padding: 0;
     clear: both;
@@ -2063,8 +2088,7 @@ PAGE NAVI STYLES
     margin: 0;
     float: left;
     display: inline;
-    overflow: hidden;
-    border-right: 1px solid #626679; }
+    overflow: hidden; }
   .pagination a, .pagination span {
     margin: 0;
     text-decoration: none;
@@ -2075,15 +2099,15 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: #333; }
+    color: #B2B3B7; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
       background-color: #333;
-      color: #F4F4F1; }
+      color: #fbfbfb; }
   .pagination .current {
     cursor: default;
     color: #010208; }
     .pagination .current:hover, .pagination .current:focus {
-      background-color: #F4F4F1;
+      background-color: #fbfbfb;
       color: #010208; }
 
 /* end .bones_page_navi */
@@ -2156,7 +2180,7 @@ COMMENT STYLES
     margin-left: 7px;
     padding: 7px; }
   .comment.odd {
-    background-color: #F4F4F1; }
+    background-color: #fbfbfb; }
   .comment.even {
     background: #f8f9fa; }
 
@@ -2232,7 +2256,7 @@ SIDEBARS & ASIDES
   /* deep nesting */ }
 
 .no-widgets {
-  background-color: #F4F4F1;
+  background-color: #fbfbfb;
   padding: 1.5em;
   text-align: center;
   border: 1px solid #ccc;
@@ -2300,27 +2324,27 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
   /* entry content */
+  .photo_post .entry-content {
+    margin-top: 1vh; }
   .entry-content {
     max-width: 85%;
     margin: 0 auto;
     margin-top: -5vh;
-    background: #F4F4F1;
+    background-color: inherit;
     position: relative;
     z-index: 99;
     /* at this larger size, we can start to align images */ }
     .entry-content .alignleft, .entry-content img.alignleft {
       margin-right: 1.5em;
-      display: inline;
       float: left; }
     .entry-content .alignright, .entry-content img.alignright {
       margin-left: 1.5em;
-      display: inline;
       float: right; }
     .entry-content .aligncenter, .entry-content img.aligncenter {
       margin-right: auto;
       margin-left: auto;
-      display: block;
-      clear: both; }
+      clear: both;
+      text-align: center; }
   /* end .entry-content */
   .article-header, .article-footer {
     max-width: 85%;

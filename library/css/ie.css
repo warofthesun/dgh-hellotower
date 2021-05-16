@@ -122,27 +122,28 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
+.photo_post .entry-content {
+  margin-top: 1vh; }
+
 .entry-content {
   max-width: 85%;
   margin: 0 auto;
   margin-top: -5vh;
-  background: #F4F4F1;
+  background-color: inherit;
   position: relative;
   z-index: 99;
   /* at this larger size, we can start to align images */ }
   .entry-content .alignleft, .entry-content img.alignleft {
     margin-right: 1.5em;
-    display: inline;
     float: left; }
   .entry-content .alignright, .entry-content img.alignright {
     margin-left: 1.5em;
-    display: inline;
     float: right; }
   .entry-content .aligncenter, .entry-content img.aligncenter {
     margin-right: auto;
     margin-left: auto;
-    display: block;
-    clear: both; }
+    clear: both;
+    text-align: center; }
 
 /* end .entry-content */
 .article-header, .article-footer {

@@ -316,6 +316,9 @@ probably best not to use it. I mean, were you going to anyway? */
   body#tinymce.wp-editor section,
   body#tinymce.wp-editor summary {
     display: block; }
+  body#tinymce.wp-editor .wp-block-image figcaption {
+    font-style: italic;
+    margin-top: 0; }
   body#tinymce.wp-editor audio,
   body#tinymce.wp-editor canvas,
   body#tinymce.wp-editor video {
@@ -404,7 +407,8 @@ probably best not to use it. I mean, were you going to anyway? */
   body#tinymce.wp-editor ol,
   body#tinymce.wp-editor ul {
     padding: 0;
-    list-style-type: none; }
+    list-style-type: normal;
+    margin-left: 2em; }
   body#tinymce.wp-editor nav ul,
   body#tinymce.wp-editor nav ol {
     list-style: none;

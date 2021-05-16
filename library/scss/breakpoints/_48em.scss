@@ -68,30 +68,34 @@ POSTS & CONTENT STYLES
 *********************/
 
 /* entry content */
+
+.photo_post {
+	.entry-content {
+		margin-top: 1vh;
+	}
+}
 .entry-content {
 	max-width: 85%;
 	margin: 0 auto;
 	margin-top: -5vh;
-	background: $white;
+	background-color: inherit;
 	position: relative;
 	z-index: 99;
 
 	/* at this larger size, we can start to align images */
 	.alignleft, img.alignleft {
 		margin-right: 1.5em;
-		display: inline;
 		float: left;
 	}
 	.alignright, img.alignright {
 		margin-left: 1.5em;
-		display: inline;
 		float: right;
 	}
 	.aligncenter, img.aligncenter {
 		margin-right: auto;
 		margin-left: auto;
-		display: block;
 		clear: both;
+		text-align: center;
 	}
 
 } /* end .entry-content */

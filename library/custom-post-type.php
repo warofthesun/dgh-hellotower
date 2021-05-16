@@ -8,13 +8,13 @@ function dgh_flush_rewrite_rules() {
 	flush_rewrite_rules();
 }
 
-// let's create the function for the custom type
-function custom_post() {
+// Start photography post type and tags
+function photo_post() {
 	// creating (registering) the custom type
 	register_post_type( 'photo_post', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-			'name' => __( 'Photo Posts', 'dghtheme' ), /* This is the Title of the Group */
+			'name' => __( 'Photography', 'dghtheme' ), /* This is the Title of the Group */
 			'singular_name' => __( 'Photo Post', 'dghtheme' ), /* This is the individual type */
 			'all_items' => __( 'All Photo Posts', 'dghtheme' ), /* the all items menu item */
 			'add_new' => __( 'Add New', 'dghtheme' ), /* The add new menu item */
@@ -35,15 +35,14 @@ function custom_post() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
-			'rewrite'	=> array( 'slug' => 'photo_post', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'photo_post', /* you can rename the slug here */
+			'menu_icon' => 'dashicons-camera', /* the icon for the custom post type menu */
+			'rewrite'	=> array( 'slug' => 'photography', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'sticky', 'custom-tags'),
 			'show_in_rest' => true,
-   		'supports' => array('editor')
 		) /* end of options */
 	); /* end of register post type */
 
@@ -51,19 +50,13 @@ function custom_post() {
 	register_taxonomy_for_object_type( 'category', 'photo_post' );
 	/* this adds your post tags to your custom post type */
 	register_taxonomy_for_object_type( 'post_tag', 'photo_post' );
-
 }
 
 	// adding the function to the Wordpress init
-	add_action( 'init', 'custom_post');
-
-	/*
-	for more information on taxonomies, go here:
-	http://codex.wordpress.org/Function_Reference/register_taxonomy
-	*/
+	add_action( 'init', 'photo_post');
 
 	// now let's add custom categories (these act like categories)
-	register_taxonomy( 'custom_cat',
+	register_taxonomy( 'photo_cat',
 		array('photo_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
 		array('hierarchical' => true,     /* if this is true, it acts like categories */
 			'labels' => array(
@@ -81,12 +74,13 @@ function custom_post() {
 			'show_admin_column' => true,
 			'show_ui' => true,
 			'query_var' => true,
-			'rewrite' => array( 'slug' => 'custom-slug' ),
+			'show_in_rest' => True,
+			'rewrite' => array( 'slug' => 'photography' ),
 		)
 	);
 
 	// now let's add custom tags (these act like categories)
-	register_taxonomy( 'custom_tag',
+	register_taxonomy( 'photo_tag',
 		array('photo_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
 		array('hierarchical' => false,    /* if this is false, it acts like tags */
 			'labels' => array(
@@ -104,10 +98,103 @@ function custom_post() {
 			'show_admin_column' => true,
 			'show_ui' => true,
 			'query_var' => true,
+			'show_in_rest' => True,
 		)
 	);
-
-
-
+	
+	// Start music post type and tags
+	function music_post() {
+		// creating (registering) the custom type
+		register_post_type( 'music_post', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+			// let's now add all the options for this post type
+			array( 'labels' => array(
+				'name' => __( 'Music', 'dghtheme' ), /* This is the Title of the Group */
+				'singular_name' => __( 'Music Post', 'dghtheme' ), /* This is the individual type */
+				'all_items' => __( 'All Music Posts', 'dghtheme' ), /* the all items menu item */
+				'add_new' => __( 'Add New', 'dghtheme' ), /* The add new menu item */
+				'add_new_item' => __( 'Add New Music Post', 'dghtheme' ), /* Add New Display Title */
+				'edit' => __( 'Edit', 'dghtheme' ), /* Edit Dialog */
+				'edit_item' => __( 'Edit Music Posts', 'dghtheme' ), /* Edit Display Title */
+				'new_item' => __( 'New Music Post', 'dghtheme' ), /* New Display Title */
+				'view_item' => __( 'View Music Post', 'dghtheme' ), /* View Display Title */
+				'search_items' => __( 'Search Music Post', 'dghtheme' ), /* Search Photo Post Title */
+				'not_found' =>  __( 'Nothing found in the Database.', 'dghtheme' ), /* This displays if there are no entries yet */
+				'not_found_in_trash' => __( 'Nothing found in Trash', 'dghtheme' ), /* This displays if there is nothing in the trash */
+				'parent_item_colon' => ''
+			), /* end of arrays */
+				
+				'description' => __( 'Use for highlighting musical releases', 'dghtheme' ), /* Photo Post Description */
+				'public' => true,
+				'publicly_queryable' => true,
+				'exclude_from_search' => false,
+				'show_ui' => true,
+				'query_var' => true,
+				'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
+				'menu_icon' => 'dashicons-format-audio', /* the icon for the custom post type menu */
+				'rewrite'	=> array( 'slug' => 'music', 'with_front' => false ), /* you can specify its url slug */
+				'has_archive' => true, /* you can rename the slug here */
+				'capability_type' => 'post',
+				'hierarchical' => false,
+				/* the next one is important, it tells what's enabled in the post editor */
+				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'revisions', 'sticky', 'custom-tags'),
+				'show_in_rest' => true,
+			) /* end of options */
+		); /* end of register post type */
+	
+		/* this adds your post categories to your custom post type */
+		register_taxonomy_for_object_type( 'category', 'music_post' );
+		/* this adds your post tags to your custom post type */
+		register_taxonomy_for_object_type( 'post_tag', 'music_post' );
+	}
+	
+		// adding the function to the Wordpress init
+		add_action( 'init', 'music_post');
+	
+		// now let's add custom categories (these act like categories)
+		register_taxonomy( 'music_cat',
+			array('music_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
+			array('hierarchical' => true,     /* if this is true, it acts like categories */
+				'labels' => array(
+					'name' => __( 'Music Categories', 'dghtheme' ), /* name of the custom taxonomy */
+					'singular_name' => __( 'Music Category', 'dghtheme' ), /* single taxonomy name */
+					'search_items' =>  __( 'Search Music Categories', 'dghtheme' ), /* search title for taxomony */
+					'all_items' => __( 'All Music Categories', 'dghtheme' ), /* all title for taxonomies */
+					'parent_item' => __( 'Parent Music Category', 'dghtheme' ), /* parent title for taxonomy */
+					'parent_item_colon' => __( 'Parent Music Category:', 'dghtheme' ), /* parent taxonomy title */
+					'edit_item' => __( 'Edit Music Category', 'dghtheme' ), /* edit custom taxonomy title */
+					'update_item' => __( 'Update Music Category', 'dghtheme' ), /* update title for taxonomy */
+					'add_new_item' => __( 'Add New Music Category', 'dghtheme' ), /* add new title for taxonomy */
+					'new_item_name' => __( 'New Music Category Name', 'dghtheme' ) /* name title for taxonomy */
+				),
+				'show_admin_column' => true,
+				'show_ui' => true,
+				'query_var' => true,
+				'show_in_rest' => True,
+				'rewrite' => array( 'slug' => 'music' ),
+			)
+		);
+	
+		// now let's add custom tags (these act like categories)
+		register_taxonomy( 'music_tag',
+			array('music_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
+			array('hierarchical' => false,    /* if this is false, it acts like tags */
+				'labels' => array(
+					'name' => __( 'Music Tags', 'dghtheme' ), /* name of the custom taxonomy */
+					'singular_name' => __( 'Music Tag', 'dghtheme' ), /* single taxonomy name */
+					'search_items' =>  __( 'Search Music Tags', 'dghtheme' ), /* search title for taxomony */
+					'all_items' => __( 'All Music Tags', 'dghtheme' ), /* all title for taxonomies */
+					'parent_item' => __( 'Parent Music Tag', 'dghtheme' ), /* parent title for taxonomy */
+					'parent_item_colon' => __( 'Parent Music Tag:', 'dghtheme' ), /* parent taxonomy title */
+					'edit_item' => __( 'Edit Music Tag', 'dghtheme' ), /* edit custom taxonomy title */
+					'update_item' => __( 'Update Music Tag', 'dghtheme' ), /* update title for taxonomy */
+					'add_new_item' => __( 'Add New Music Tag', 'dghtheme' ), /* add new title for taxonomy */
+					'new_item_name' => __( 'New Music Tag Name', 'dghtheme' ) /* name title for taxonomy */
+				),
+				'show_admin_column' => true,
+				'show_ui' => true,
+				'query_var' => true,
+				'show_in_rest' => True,
+			)
+		);
 
 ?>

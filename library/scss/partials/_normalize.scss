@@ -24,6 +24,14 @@ summary {
     display: block;
 }
 
+.wp-block-image {
+  figcaption {
+    font-style: italic;
+    margin-top: 0;
+  }
+}
+
+
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
@@ -269,7 +277,8 @@ menu {
 ol,
 ul {
     padding: 0;
-    list-style-type: none;
+    list-style-type: normal;
+    margin-left: 2em;
 }
 
 /*
