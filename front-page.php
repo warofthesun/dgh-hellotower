@@ -8,7 +8,7 @@
 						<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php $args = array(
-					       'post_type' => array('post', 'photo_post'),
+					       'post_type' => array('post', 'photo_post', 'music_post'),
 					       'post_status' => 'publish',
 					       'orderby' => 'date',
 					       'order' => 'DSC',

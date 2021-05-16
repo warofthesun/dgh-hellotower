@@ -48,10 +48,10 @@ USAGE: @include transition(all 0.2s ease-in-out);
 	$step: 2; 
 	
 	
-	@while $step <=6  {
+	@while $step <=10  {
 	
 	&:nth-child(#{$step}) {
-			background-color: darken($darken-color, ($step * 2%));
+			background-color: darken($darken-color, ($step * 1.5%));
 	}
 	
 	$step: $step + 1;

@@ -54,53 +54,6 @@ function photo_post() {
 
 	// adding the function to the Wordpress init
 	add_action( 'init', 'photo_post');
-
-	// now let's add custom categories (these act like categories)
-	register_taxonomy( 'photo_cat',
-		array('photo_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
-		array('hierarchical' => true,     /* if this is true, it acts like categories */
-			'labels' => array(
-				'name' => __( 'Photo Categories', 'dghtheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Photo Category', 'dghtheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Photo Categories', 'dghtheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Photo Categories', 'dghtheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Photo Category', 'dghtheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Photo Category:', 'dghtheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Photo Category', 'dghtheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Photo Category', 'dghtheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Photo Category', 'dghtheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Photo Category Name', 'dghtheme' ) /* name title for taxonomy */
-			),
-			'show_admin_column' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'show_in_rest' => True,
-			'rewrite' => array( 'slug' => 'photography' ),
-		)
-	);
-
-	// now let's add custom tags (these act like categories)
-	register_taxonomy( 'photo_tag',
-		array('photo_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
-		array('hierarchical' => false,    /* if this is false, it acts like tags */
-			'labels' => array(
-				'name' => __( 'Photo Tags', 'dghtheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Photo Tag', 'dghtheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Photo Tags', 'dghtheme' ), /* search title for taxomony */
-				'all_items' => __( 'All Photo Tags', 'dghtheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Photo Tag', 'dghtheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Photo Tag:', 'dghtheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Photo Tag', 'dghtheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Photo Tag', 'dghtheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Photo Tag', 'dghtheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Photo Tag Name', 'dghtheme' ) /* name title for taxonomy */
-			),
-			'show_admin_column' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'show_in_rest' => True,
-		)
-	);
 	
 	// Start music post type and tags
 	function music_post() {
@@ -149,52 +102,5 @@ function photo_post() {
 	
 		// adding the function to the Wordpress init
 		add_action( 'init', 'music_post');
-	
-		// now let's add custom categories (these act like categories)
-		register_taxonomy( 'music_cat',
-			array('music_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
-			array('hierarchical' => true,     /* if this is true, it acts like categories */
-				'labels' => array(
-					'name' => __( 'Music Categories', 'dghtheme' ), /* name of the custom taxonomy */
-					'singular_name' => __( 'Music Category', 'dghtheme' ), /* single taxonomy name */
-					'search_items' =>  __( 'Search Music Categories', 'dghtheme' ), /* search title for taxomony */
-					'all_items' => __( 'All Music Categories', 'dghtheme' ), /* all title for taxonomies */
-					'parent_item' => __( 'Parent Music Category', 'dghtheme' ), /* parent title for taxonomy */
-					'parent_item_colon' => __( 'Parent Music Category:', 'dghtheme' ), /* parent taxonomy title */
-					'edit_item' => __( 'Edit Music Category', 'dghtheme' ), /* edit custom taxonomy title */
-					'update_item' => __( 'Update Music Category', 'dghtheme' ), /* update title for taxonomy */
-					'add_new_item' => __( 'Add New Music Category', 'dghtheme' ), /* add new title for taxonomy */
-					'new_item_name' => __( 'New Music Category Name', 'dghtheme' ) /* name title for taxonomy */
-				),
-				'show_admin_column' => true,
-				'show_ui' => true,
-				'query_var' => true,
-				'show_in_rest' => True,
-				'rewrite' => array( 'slug' => 'music' ),
-			)
-		);
-	
-		// now let's add custom tags (these act like categories)
-		register_taxonomy( 'music_tag',
-			array('music_post'), /* if you change the name of register_post_type( 'photo_post', then you have to change this */
-			array('hierarchical' => false,    /* if this is false, it acts like tags */
-				'labels' => array(
-					'name' => __( 'Music Tags', 'dghtheme' ), /* name of the custom taxonomy */
-					'singular_name' => __( 'Music Tag', 'dghtheme' ), /* single taxonomy name */
-					'search_items' =>  __( 'Search Music Tags', 'dghtheme' ), /* search title for taxomony */
-					'all_items' => __( 'All Music Tags', 'dghtheme' ), /* all title for taxonomies */
-					'parent_item' => __( 'Parent Music Tag', 'dghtheme' ), /* parent title for taxonomy */
-					'parent_item_colon' => __( 'Parent Music Tag:', 'dghtheme' ), /* parent taxonomy title */
-					'edit_item' => __( 'Edit Music Tag', 'dghtheme' ), /* edit custom taxonomy title */
-					'update_item' => __( 'Update Music Tag', 'dghtheme' ), /* update title for taxonomy */
-					'add_new_item' => __( 'Add New Music Tag', 'dghtheme' ), /* add new title for taxonomy */
-					'new_item_name' => __( 'New Music Tag Name', 'dghtheme' ) /* name title for taxonomy */
-				),
-				'show_admin_column' => true,
-				'show_ui' => true,
-				'query_var' => true,
-				'show_in_rest' => True,
-			)
-		);
 
 ?>
