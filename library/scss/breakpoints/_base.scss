@@ -20,6 +20,10 @@ img {
 	flex-direction: column;
 }
 
+#inner-content {
+	background: $black;
+}
+
 #inner-footer {
 	.nav {
 		opacity: 1;
@@ -344,7 +348,7 @@ article {
 
 			footer {
 				padding: 1.5em;
-				border-top: 1px solid $light-gray;
+				border-top: 0px solid $light-gray;
 				clear: both;
 
 				p {
@@ -372,13 +376,13 @@ article {
 		.post {
 			&__container {
 				padding: 2em 0;
-				border-top: 2px solid $white;
+				//border-top: 2px solid $white;
 
 				&:first-child {
 					padding-top: 0;
 				}
 				
-				@include background-darken($white);
+				@include background-darken($black);
 				
 				article {
 					background-color: inherit;
@@ -426,9 +430,11 @@ article {
 		/* entry content */
 		.entry-content {
 			padding: 1.5em 1.5em 0;
+			border-radius: 6px;
 
 			p {
 				margin: 0 0 1.5em;
+				color: $white;
 			}
 
 

@@ -42,7 +42,7 @@ USAGE: @include transition(all 0.2s ease-in-out);
 
 @mixin background-darken($color) {
 	&:first-child {
-		background-color: $white;
+		background-color: $color
 	}
 	$darken-color: $color; 
 	$step: 2; 

@@ -1650,6 +1650,9 @@ img {
       -ms-flex-direction: column;
           flex-direction: column; }
 
+#inner-content {
+  background: #010208; }
+
 #inner-footer .nav {
   opacity: 1;
   -webkit-box-orient: horizontal;
@@ -1885,7 +1888,7 @@ article .hero--image img {
     padding: 1.5em; }
   .hentry footer {
     padding: 1.5em;
-    border-top: 1px solid #f8f9fa;
+    border-top: 0px solid #f8f9fa;
     clear: both; }
     .hentry footer p {
       margin: 0; }
@@ -1898,30 +1901,29 @@ article .hero--image img {
 
 /* post by id (i.e. post-3) */
 .post__container {
-  padding: 2em 0;
-  border-top: 2px solid #fff; }
+  padding: 2em 0; }
   .post__container:first-child {
     padding-top: 0; }
   .post__container:first-child {
-    background-color: #fff; }
+    background-color: #010208; }
   .post__container:nth-child(2) {
-    background-color: #f7f7f7; }
+    background-color: black; }
   .post__container:nth-child(3) {
-    background-color: #f4f4f4; }
+    background-color: black; }
   .post__container:nth-child(4) {
-    background-color: #f0f0f0; }
+    background-color: black; }
   .post__container:nth-child(5) {
-    background-color: #ececec; }
+    background-color: black; }
   .post__container:nth-child(6) {
-    background-color: #e8e8e8; }
+    background-color: black; }
   .post__container:nth-child(7) {
-    background-color: #e4e4e4; }
+    background-color: black; }
   .post__container:nth-child(8) {
-    background-color: #e0e0e0; }
+    background-color: black; }
   .post__container:nth-child(9) {
-    background-color: #dddddd; }
+    background-color: black; }
   .post__container:nth-child(10) {
-    background-color: #d9d9d9; }
+    background-color: black; }
   .post__container article {
     background-color: inherit; }
   .post__container .header-category, .post__container .footer-tags {
@@ -1955,6 +1957,7 @@ article .hero--image img {
 /* entry content */
 .entry-content {
   padding: 1.5em 1.5em 0;
+  border-radius: 6px;
   /*
 			image alignment on a screen this size may be
 			a bit difficult. It's set to start aligning
@@ -1962,7 +1965,8 @@ article .hero--image img {
 			but it's up to you. Feel free to change it up.
 			*/ }
   .entry-content p {
-    margin: 0 0 1.5em; }
+    margin: 0 0 1.5em;
+    color: #fff; }
   .entry-content table {
     width: 100%;
     border: 1px solid #626679;
