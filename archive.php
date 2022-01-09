@@ -7,10 +7,10 @@
 
 						<main id="main" class="col-xs-12 col-sm-8 col-lg-9 " role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php
-							the_archive_title( '<h1 class="page-title">', '</h1>' );
-							the_archive_description( '<div class="taxonomy-description">', '</div>' );
-							?>
+							
+							<h1 class="page-title"><?php post_type_archive_title(); ?></h1>
+							<?php //the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+							
 
 							<?php $args = array(
 					       'post_type' => array('post','custom_type'),

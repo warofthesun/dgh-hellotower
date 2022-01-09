@@ -1,9 +1,9 @@
 <?php
 /*
- Template Name: Custom Page Example
+ Template Name: Page w/ Sidebar
 */
 ?>
-<!--page-custom-->
+<!--page-sidebar-->
 <?php get_header(); ?>
 
 			<div id="content">
@@ -19,11 +19,6 @@
 								<header class="article-header">
 
 									<h1 class="page-title"><?php the_title(); ?></h1>
-
-									<p class="byline vcard">
-										<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'dghtheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
-
 
 								</header>
 

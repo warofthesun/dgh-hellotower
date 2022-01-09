@@ -5,7 +5,7 @@
 
 				<div id="inner-content" class="wrap  row">
 
-					<main id="main" class="col-xs-12 col-sm-8 col-lg-9 " role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="col-xs-12 <?php if( is_sidebar_active( 'sidebar1' ) ): echo 'col-sm-8 col-lg-9'; endif; ?>" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<div class="post__container">
@@ -34,8 +34,13 @@
 						<?php endif; ?>
 
 					</main>
+					
+					<?php 
+						if( is_sidebar_active( 'sidebar1' ) ):
+							get_sidebar();
+						endif;
+					?>
 
-					<?php get_sidebar(); ?>
 
 				</div>
 
