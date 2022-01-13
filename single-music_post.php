@@ -1,4 +1,4 @@
-<!--single-photo post-->
+<!--single-music post-->
 <?php get_header(); ?>
 
 <div id="content">
@@ -9,9 +9,9 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<div class="post__container">
-					<article id="post-<?php the_ID(); ?>" <?php post_class('cf, photo_post'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+					<article id="post-<?php the_ID(); ?>" <?php post_class('cf, music_post'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
-						<?php include 'inc/article-layout.php'; ?>
+						<?php include 'inc/music-single-layout.php'; ?>
 
 					</article>
 				</div>
@@ -27,7 +27,7 @@
 							<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'dghtheme' ); ?></p>
 						</section>
 						<footer class="article-footer">
-								<p><?php _e( 'This is the error message in the single.php template.', 'dghtheme' ); ?></p>
+								<p><?php _e( 'This is the error message in the single - music post template.', 'dghtheme' ); ?></p>
 						</footer>
 				</article>
 

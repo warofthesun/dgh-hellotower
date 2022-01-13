@@ -12,6 +12,12 @@ LAYOUT & GRID STYLES
 	width: 760px;
 }
 
+.music {
+	&__content {
+		flex-direction: row;
+	}
+}
+
 /*********************
 HEADER STYLES
 *********************/

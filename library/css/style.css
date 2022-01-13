@@ -1872,7 +1872,9 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 #content {
-  margin-top: 1.5em; }
+  margin-top: 1.5em;
+  background-color: #010208;
+  min-height: 100vh; }
 
 article .hero--image img {
   width: 100%;
@@ -1898,6 +1900,9 @@ article .hero--image img {
 .page-title,
 .entry-title {
   margin: 0; }
+
+.archive-title {
+  text-align: center; }
 
 /* post by id (i.e. post-3) */
 .post__container {
@@ -2076,6 +2081,90 @@ article .hero--image img {
 /* gallery caption styles */
 .tags {
   margin: 0; }
+
+.music__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff; }
+  .music__content .credits {
+    text-align: center;
+    font-weight: bold;
+    margin-top: .5em;
+    margin-bottom: 1em; }
+  .music__content .social_platforms {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-left: 0;
+    margin-top: 2em; }
+    .music__content .social_platforms li {
+      margin: .5em; }
+      .music__content .social_platforms li img {
+        max-width: 30px;
+        height: auto;
+        border-radius: 6px; }
+  .music__content .music_platforms {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .music__content .music_platforms a {
+      text-decoration: none; }
+    .music__content .music_platforms li {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      background: #555555;
+      margin-bottom: 2em;
+      border-radius: 0 6px 6px 0;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .music__content .music_platforms li:hover i {
+        color: #010208; }
+      .music__content .music_platforms li:hover .platform {
+        color: #010208; }
+      .music__content .music_platforms li h4 {
+        margin-top: 0;
+        margin-bottom: 0; }
+      .music__content .music_platforms li .platform {
+        margin-left: 2em;
+        color: #fff; }
+      .music__content .music_platforms li a {
+        line-height: 0;
+        text-decoration: none; }
+      .music__content .music_platforms li img {
+        border-radius: 6px 0 0 6px;
+        margin-left: -.5em;
+        max-width: 60px;
+        height: auto; }
+      .music__content .music_platforms li i {
+        margin-left: auto;
+        margin-right: .5em;
+        font-size: 2em;
+        color: #f8f9fa; }
+  .music__content .hero--image img {
+    border-radius: 6px; }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -2382,6 +2471,11 @@ LAYOUT & GRID STYLES
 *********************/
   .wrap {
     width: 760px; }
+  .music__content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
   /*********************
 HEADER STYLES
 *********************/

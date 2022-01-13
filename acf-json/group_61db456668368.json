@@ -1,0 +1,93 @@
+{
+    "key": "group_61db456668368",
+    "title": "Music Platforms",
+    "fields": [
+        {
+            "key": "field_61db456f5cc05",
+            "label": "",
+            "name": "music_platforms",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_61db45905cc06",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Music Platform",
+            "sub_fields": [
+                {
+                    "key": "field_61db45905cc06",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "spotify": "Spotify",
+                        "youtube": "YouTube",
+                        "bandcamp": "Bandcamp",
+                        "applemusic": "Apple Music",
+                        "tidal": "Tidal",
+                        "pandora": "Pandora",
+                        "deezer": "Deezer",
+                        "itunes": "iTunes"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "array",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_61db46445cc07",
+                    "label": "Platform Link",
+                    "name": "platform_link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "music_post"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1641782925
+}

@@ -167,6 +167,12 @@ LAYOUT & GRID STYLES
 .wrap {
   width: 760px; }
 
+.music__content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
 /*********************
 HEADER STYLES
 *********************/

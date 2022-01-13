@@ -322,6 +322,8 @@ POSTS & CONTENT STYLES
 
 #content {
 	margin-top: 1.5em;
+	background-color: $black;
+	min-height: 100vh;
 }
 
 article {
@@ -370,7 +372,9 @@ article {
 
 		.entry-title {}
 
-		.archive-title {}
+		.archive-title {
+			text-align: center;
+		}
 
 		.post-id {}         /* post by id (i.e. post-3) */
 		.post {
@@ -651,6 +655,102 @@ article {
 		margin: 0;
 	}
 
+.music {
+	&__content {
+		display: flex;
+		flex-direction: column;
+		
+		color: $white;
+		
+		.credits {
+			text-align: center;
+			font-weight: bold;
+			margin-top: .5em;
+			margin-bottom: 1em;
+		}
+		
+		.social_platforms {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			margin-left: 0;
+			margin-top: 2em;
+			li {
+				margin: .5em;
+				img {
+					max-width: 30px;
+					height: auto;
+					border-radius: 6px;
+				}
+			}
+		}
+		
+		.music_platforms {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			
+			a {
+				text-decoration: none;
+			}
+			
+			li {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				background: $secondary;
+				margin-bottom: 2em;
+				border-radius: 0 6px 6px 0;
+				align-items: center;
+				
+				&:hover {
+					i {
+						color: $black;
+					}
+					
+					.platform {
+						color: $black;
+					}
+				}
+				
+				h4 {
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+				
+				.platform {
+					margin-left: 2em;
+					color: $white;
+				}
+				
+				a {
+					line-height: 0;
+					text-decoration: none;
+				}
+				
+				img {
+					border-radius: 6px 0 0 6px;
+					margin-left: -.5em;
+					max-width: 60px;
+					height: auto;
+				}
+				
+				i {
+					margin-left: auto;
+					margin-right: .5em;
+					font-size: 2em;
+					color: $light-gray;
+				}
+			}
+		}
+		
+		.hero--image {
+			img {
+				border-radius: 6px;
+			}
+		}
+	}
+}
 
 
 /******************************************************************

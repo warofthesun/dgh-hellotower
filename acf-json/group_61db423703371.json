@@ -1,11 +1,11 @@
 {
-    "key": "group_5e07bfa33841d",
-    "title": "Site Options",
+    "key": "group_61db423703371",
+    "title": "Musician(s)",
     "fields": [
         {
-            "key": "field_5e07bfbeb2aaa",
-            "label": "Placeholder",
-            "name": "placeholder",
+            "key": "field_61db4249516cf",
+            "label": "",
+            "name": "musicians",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Daniel G. Harmann",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -25,19 +25,21 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "theme-general-settings"
+                "value": "music_post"
             }
         ]
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1577566147
+    "modified": 1641760597
 }

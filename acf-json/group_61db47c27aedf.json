@@ -1,0 +1,94 @@
+{
+    "key": "group_61db47c27aedf",
+    "title": "Social Platforms - Default",
+    "fields": [
+        {
+            "key": "field_61db47e9a0c82",
+            "label": "Social Platforms Default",
+            "name": "social_platforms",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_61db480ca0c83",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Social Platform",
+            "sub_fields": [
+                {
+                    "key": "field_61db480ca0c83",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "twitter": "Twitter",
+                        "youtube": "YouTube",
+                        "instagram": "Instagram",
+                        "spotify": "Spotify",
+                        "bandcamp": "Bandcamp",
+                        "applemusic": "Apple Music",
+                        "tidal": "Tidal",
+                        "pandora": "Pandora",
+                        "deezer": "Deezer",
+                        "itunes": "iTunes"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_61db487ba0c84",
+                    "label": "Platform Link",
+                    "name": "platform_link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1641769744
+}
