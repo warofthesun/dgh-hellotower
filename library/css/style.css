@@ -1900,6 +1900,10 @@ article .hero--image img {
 .page-title,
 .entry-title {
   margin: 0; }
+  .single-title a,
+  .page-title a,
+  .entry-title a {
+    color: #fff; }
 
 .archive-title {
   text-align: center; }
@@ -2090,6 +2094,9 @@ article .hero--image img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 9px;
+  padding: 1em;
   color: #fff; }
   .music__content .credits {
     text-align: center;
@@ -2139,7 +2146,9 @@ article .hero--image img {
       border-radius: 0 6px 6px 0;
       -webkit-box-align: center;
           -ms-flex-align: center;
-              align-items: center; }
+              align-items: center;
+      -webkit-box-shadow: 0px 0px 8px #010208;
+              box-shadow: 0px 0px 8px #010208; }
       .music__content .music_platforms li:hover i {
         color: #010208; }
       .music__content .music_platforms li:hover .platform {
@@ -2164,7 +2173,9 @@ article .hero--image img {
         font-size: 2em;
         color: #f8f9fa; }
   .music__content .hero--image img {
-    border-radius: 6px; }
+    border-radius: 6px;
+    -webkit-box-shadow: 3px 3px 8px #010208;
+            box-shadow: 3px 3px 8px #010208; }
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -2448,7 +2459,6 @@ POSTS & CONTENT STYLES
       text-align: center; }
   /* end .entry-content */
   .article-header, .article-footer {
-    max-width: 85%;
     margin: 0 auto; }
   /*********************
 FOOTER STYLES

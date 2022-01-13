@@ -38,7 +38,7 @@
                         "spotify": "Spotify",
                         "youtube": "YouTube",
                         "bandcamp": "Bandcamp",
-                        "applemusic": "Apple Music",
+                        "apple-music": "Apple Music",
                         "tidal": "Tidal",
                         "pandora": "Pandora",
                         "deezer": "Deezer",
@@ -89,5 +89,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1641782925
+    "modified": 1642048856
 }
