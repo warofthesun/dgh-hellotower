@@ -229,20 +229,31 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Theme Settings',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',
-		'redirect'		=> false
+		'redirect'		=> true
 	));
 
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Header Settings',
-		'menu_title'	=> 'Header',
-		'parent_slug'	=> 'theme-general-settings',
-	));
+}
 
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer Settings',
-		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'theme-general-settings',
-	));
+add_action("pre_get_posts", "custom_front_page");
+function custom_front_page($wp_query){
+    //Ensure this filter isn't applied to the admin area
+    if(is_admin()) {
+        return;
+    }
+
+    if($wp_query->get('page_id') == get_option('page_on_front')):
+
+        $wp_query->set('post_type', 'music_post');
+        $wp_query->set('page_id', ''); //Empty
+
+        //Set properties that describe the page to reflect that
+        //we aren't really displaying a static page
+        $wp_query->is_page = 0;
+        $wp_query->is_singular = 0;
+        $wp_query->is_post_type_archive = 1;
+        $wp_query->is_archive = 1;
+
+    endif;
 
 }
 

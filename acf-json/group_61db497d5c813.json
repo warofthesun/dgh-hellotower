@@ -3,11 +3,28 @@
     "title": "Social Platforms",
     "fields": [
         {
+            "key": "field_61e4af41a70c9",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "If left blank the social platform set in \"Theme Settings\" will be shown",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_61db497d6178b",
             "label": "",
             "name": "social_platforms",
             "type": "repeater",
-            "instructions": "If left blank the social platforms set in Theme Settings will be displayed",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -41,7 +58,7 @@
                         "instagram": "Instagram",
                         "spotify": "Spotify",
                         "bandcamp": "Bandcamp",
-                        "applemusic": "Apple Music",
+                        "apple-music": "Apple Music",
                         "tidal": "Tidal",
                         "pandora": "Pandora",
                         "deezer": "Deezer",
@@ -92,5 +109,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1641770581
+    "modified": 1642377416
 }

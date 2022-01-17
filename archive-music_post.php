@@ -5,54 +5,68 @@
 	
 					<div id="inner-content" class="wrap  row">
 	
-						<main id="main" class="col-xs-12" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-	
-							<h1 class="archive-title"><?php post_type_archive_title(); ?></h1>
-	
-								<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	
-								<article id="post-<?php the_ID(); ?>" <?php post_class( 'photo_post' ); ?> role="article">
-	
-									<header class="article-header">
-	
-										<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-										<p class="byline vcard"><?php
-											printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'dghtheme' ), get_the_time( 'Y-m-j' ), get_the_time( __( 'F jS, Y', 'dghtheme' ) ), get_author_posts_url( get_the_author_meta( 'ID' ) ));
-										?></p>
-	
-									</header>
-	
-									<section class="entry-content ">
-	
-										<?php the_excerpt(); ?>
-	
-									</section>
-	
-									<footer class="article-footer">
-	
-									</footer>
-	
-								</article>
-	
-								<?php endwhile; ?>
-	
-										<?php dgh_page_navi(); ?>
-	
-								<?php else : ?>
-	
-										<article id="post-not-found" class="hentry ">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'dghtheme' ); ?></h1>
-											</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'dghtheme' ); ?></p>
-											</section>
-											<footer class="article-footer">
-													<p><?php _e( 'Error message - music archive', 'dghtheme' ); ?></p>
-											</footer>
-										</article>
-	
+						<main id="main" class="col-xs-12 row music__content" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+							<div class="left col-xs-12 col-md-6">
+								<div class="hero--image hero--image__music">
+									<?php
+									
+									$image = get_field('cover_photo', 'options');
+									
+									if( !empty($image) ):
+										// vars
+										$url = $image['url'];
+										$title = $image['title'];
+										$alt = $image['alt'];
+										$caption = $image['caption'];
+									
+										// thumbnail
+										$size = 'large';
+										$thumb = $image['sizes'][ $size ];
+										$width = $image['sizes'][ $size . '-width' ];
+										$height = $image['sizes'][ $size . '-height' ]; ?>
+									
+										<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+									
+									<?php endif; ?>
+								</div>
+								<div>
+									<?php the_field('body_content', 'options'); ?>
+								</div>
+								<?php 
+								if( have_rows('social_platforms_music', 'options') ): ?>
+								<ul class="social_platforms">
+									<?php while( have_rows('social_platforms', 'options') ) : the_row(); ?>
+									<li>
+										<?php 
+										$link = get_sub_field('platform_link');
+										if( $link ): 
+												$link_url = $link['url'];
+												$link_title = $link['title'];
+												$link_target = $link['target'] ? $link['target'] : '_self';
+												?>
+												<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/library/images/platforms/<?php the_sub_field('platform'); ?>.png"></a>
+										<?php endif; ?>
+									</li>
+									<?php endwhile; ?>
+								</ul>
 								<?php endif; ?>
+							</div>
+							<div class="right col-xs-12 col-md-6">
+									<?php if (have_posts()) : ?>
+									<ul class="music_platforms">
+										<?php while (have_posts()) : the_post(); ?>
+										<a href="<?php the_permalink(); ?>">
+										<li>
+											
+											<?php the_post_thumbnail('medium'); ?>
+											<h4 class="platform" style="display:block; margin-left: 1em;"><?php the_title(); ?></h4>
+											<i class="fas fa-caret-square-right"></i>
+										</li>
+										</a>
+									<?php endwhile; ?>
+									</ul>
+									<?php endif; ?>
+							</div>
 	
 							</main>
 	

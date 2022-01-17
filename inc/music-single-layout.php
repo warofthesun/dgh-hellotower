@@ -38,10 +38,10 @@
           
       <?php endwhile;
   
-    elseif( have_rows('social_platforms', 'option') ): ?>
+    elseif( have_rows('social_platforms_default', 'option') ): ?>
     <ul class="social_platforms">
       
-      <?php while( have_rows('social_platforms', 'option') ) : the_row(); ?>
+      <?php while( have_rows('social_platforms_default', 'option') ) : the_row(); ?>
       <li>
         <?php 
         $link = get_sub_field('platform_link');

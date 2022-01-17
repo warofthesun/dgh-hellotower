@@ -1872,7 +1872,6 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 #content {
-  margin-top: 1.5em;
   background-color: #010208;
   min-height: 100vh; }
 
@@ -2176,6 +2175,9 @@ article .hero--image img {
     border-radius: 6px;
     -webkit-box-shadow: 3px 3px 8px #010208;
             box-shadow: 3px 3px 8px #010208; }
+  .music__content .hero--image__music img {
+    width: 100%;
+    height: auto; }
 
 /******************************************************************
 PAGE NAVI STYLES
