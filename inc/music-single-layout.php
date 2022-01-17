@@ -10,12 +10,12 @@
     ); ?>
   </p>
   <h1 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-  <?php printf( '<p class="header-category"><i class="fas fa-album-collection"></i>' . __('', 'dghtheme' ) . ' %1$s</p>' , get_the_category_list(' | ') ); ?>
+  <?php //printf( '<p class="header-category"><i class="fas fa-album-collection"></i>' . __('', 'dghtheme' ) . ' %1$s</p>' , get_the_category_list(' | ') ); ?>
 
 </header>
 <div class="music__content">
 <div class="music__info col-xs-12 col-md-6">
-<div class="hero--image"><?php the_post_thumbnail('featured-image'); ?></div>
+<div class="hero--image"><?php the_post_thumbnail('medium'); ?></div>
 <div class="credits">
   <?php the_field('musicians'); ?>
 </div>
