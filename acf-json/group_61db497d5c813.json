@@ -3,13 +3,40 @@
     "title": "Social Platforms",
     "fields": [
         {
+            "key": "field_61e8b3de9f8f6",
+            "label": "Include Social Platforms",
+            "name": "include_social_platforms",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_61e4af41a70c9",
             "label": "",
             "name": "",
             "type": "message",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61e8b3de9f8f6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -26,13 +53,21 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61e8b3de9f8f6",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_61db6b8e02a80",
             "min": 0,
             "max": 0,
             "layout": "table",
@@ -109,5 +144,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1642377416
+    "modified": 1642640420
 }

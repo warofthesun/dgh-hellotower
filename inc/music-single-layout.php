@@ -19,8 +19,8 @@
 <div class="credits">
   <?php the_field('musicians'); ?>
 </div>
-  <?php 
-    if( have_rows('social_platforms') ): ?>
+  <?php if(get_field('include_social_platforms') ) : ?>
+  <?php if( have_rows('social_platforms') ): ?>
     <ul class="social_platforms">
       <?php while( have_rows('social_platforms') ) : the_row(); ?>
     <li>
@@ -29,7 +29,7 @@
       if( $link ): 
           $link_url = $link['url'];
           $link_title = $link['title'];
-          $link_target = $link['target'] ? $link['target'] : '_self';
+          $link_target = $link['target'] ? $link['target'] : '_blank';
           ?>
           <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/library/images/platforms/<?php the_sub_field('platform'); ?>.png"></a>
       <?php endif; ?>
@@ -57,7 +57,7 @@
           
       <?php endwhile; ?>
       </ul>
-  <?php endif;  ?>
+  <?php endif;  endif; ?>
 
 </div>
 <div class="music__links col-xs-12 col-md-6">

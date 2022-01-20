@@ -1782,6 +1782,9 @@ h5, .h5 {
 /*********************
 HEADER STYLES
 *********************/
+.single-music_post .header {
+  display: block; }
+
 .header {
   background-color: transparent; }
 
@@ -2084,6 +2087,9 @@ article .hero--image img {
 /* gallery caption styles */
 .tags {
   margin: 0; }
+
+.post-type-archive-music_post #content {
+  padding-top: 2em; }
 
 .music__content {
   display: -webkit-box;

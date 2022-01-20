@@ -92,10 +92,11 @@
     					         'fallback_cb' => ''                             // fallback function (if there is one)
 						)); ?>
 					</nav>
-
-					<div id="mobile-nav">
-						Menu <i class="fas fa-chevron-down"></i>
-					</div>
+					<?php if ( has_nav_menu( 'main-nav' ) ) { ?>
+						<div id="mobile-nav">
+							Menu <i class="fas fa-chevron-down"></i>
+						</div>
+				 <?php } ?>
 				</div>
 
 			</header>
