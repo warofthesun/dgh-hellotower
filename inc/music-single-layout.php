@@ -14,7 +14,7 @@
 
 </header>
 <div class="music__content">
-<div class="music__info col-xs-12 col-md-6">
+<div class="music__info col-xs-4 col-md-6">
 <div class="hero--image"><?php the_post_thumbnail('medium'); ?></div>
 <div class="credits">
   <?php the_field('musicians'); ?>
@@ -60,7 +60,7 @@
   <?php endif;  endif; ?>
 
 </div>
-<div class="music__links col-xs-12 col-md-6">
+<div class="music__links col-xs-8 col-md-6">
   <?php if( have_rows('music_platforms') ): ?>
     <ul class="music_platforms">
       <?php while( have_rows('music_platforms') ) : the_row(); ?>

@@ -1789,8 +1789,10 @@ HEADER STYLES
   background-color: transparent; }
 
 #logo {
-  margin: 0.75em 0;
+  margin: 0.5em 0;
   text-align: center; }
+  #logo.h1 {
+    font-size: 1.5em; }
   #logo a {
     color: #010208; }
 
@@ -2095,10 +2097,10 @@ article .hero--image img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   background: #1a1a1a;
   border-radius: 9px;
   padding: 1em;
@@ -2165,19 +2167,21 @@ article .hero--image img {
         margin-bottom: 0; }
       .music__content .music_platforms li .platform {
         margin-left: 2em;
-        color: #fff; }
+        color: #fff;
+        font-size: .8em;
+        line-height: 1; }
       .music__content .music_platforms li a {
         line-height: 0;
         text-decoration: none; }
       .music__content .music_platforms li img {
         border-radius: 6px 0 0 6px;
         margin-left: -.5em;
-        max-width: 60px;
+        max-width: 40px;
         height: auto; }
       .music__content .music_platforms li i {
         margin-left: auto;
         margin-right: .5em;
-        font-size: 2em;
+        font-size: 1.5em;
         color: #f8f9fa; }
   .music__content .hero--image img {
     border-radius: 6px;
@@ -2537,9 +2541,23 @@ LAYOUT & GRID STYLES
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row; }
+    .music__content .music_platforms li .platform {
+      font-size: 1.1em; }
+    .music__content .music_platforms li img {
+      border-radius: 6px 0 0 6px;
+      margin-left: -.5em;
+      max-width: 60px;
+      height: auto; }
+    .music__content .music_platforms li i {
+      font-size: 2em; }
   /*********************
 HEADER STYLES
 *********************/
+  #logo {
+    margin: 0.75em 0;
+    text-align: center; }
+    #logo.h1 {
+      font-size: 2.5em; }
   /*********************
 NAVIGATION STYLES
 *********************/
