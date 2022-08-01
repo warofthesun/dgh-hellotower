@@ -2103,6 +2103,8 @@ article .hero--image img {
   border-radius: 9px;
   padding: 1em;
   color: #fff; }
+  .music__content.epk {
+    background: #000; }
   .music__content .credits {
     text-align: center;
     font-weight: bold;
@@ -2184,6 +2186,47 @@ article .hero--image img {
   .music__content .hero--image__music img {
     width: 100%;
     height: auto; }
+
+.epk__content .header--links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 0;
+  margin-left: 0; }
+  .epk__content .header--links li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 2em; }
+    .epk__content .header--links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold; }
+      .epk__content .header--links li a:hover {
+        color: rgba(255, 255, 255, 0.6); }
+
+.epk__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 0;
+  margin-left: 0; }
+  .epk__details li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1em; }
+    .epk__details li span {
+      font-style: italic;
+      display: inline-block;
+      margin-right: 1em; }
 
 /******************************************************************
 PAGE NAVI STYLES
