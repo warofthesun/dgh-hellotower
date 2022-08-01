@@ -257,4 +257,49 @@ function custom_front_page($wp_query){
 
 }
 
+add_shortcode('bandcamp', function($attr=[]){
+  $attr = shortcode_atts([
+      'width' => null,
+      'height' => null,
+      'album' => null,
+      'title' => null,
+      'size' => null,
+      'bgcol' => null,
+      'url' => null,
+      'linkcol' => null,
+      'tracklist' => null,
+      'title' => null,
+      'artwork' => null,
+  ], $attr);
+
+  extract($attr);
+
+  if ($album == null)
+      return false;
+
+  if ( preg_match("#^[0-9]+$#", $width) ) {
+      $width = $width.'px';
+  }
+  if ( preg_match("#^[0-9]+$#", $height) ) {
+      $height = $height.'px';
+  }
+
+  // the embed code itself
+  $iframe = sprintf('<iframe style="border: 0; width: %s; height: %s;" src="https://bandcamp.com/EmbeddedPlayer/album=%s/size=%s/bgcol=%s/linkcol=%s/tracklist=%s/transparent=true/artwork=%s/" title="%s" seamless></iframe>',
+$width,
+$height,
+      $album,
+      $size,
+      $bgcol,
+      $linkcol,
+      $tracklist,
+      $artwork,
+      $title,
+  );
+
+  // if your site uses Gutenberg
+  // this is veerrrry....sloppily creating your own block
+  return '<figure class="wp-block-embed-bandcamp wp-block-embed is-type-audio is-provider-bandcamp wp-embed-aspect-16-9 wp-has-aspect-ratio js">' . '<div class="wp-block-embed__wrapper">' . $iframe . '</div>' . '</figure>';
+});
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>
