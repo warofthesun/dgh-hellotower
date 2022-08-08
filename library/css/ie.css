@@ -181,6 +181,12 @@ LAYOUT & GRID STYLES
   .music__content .music_platforms li i {
     font-size: 2em; }
 
+.epk {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
 /*********************
 HEADER STYLES
 *********************/

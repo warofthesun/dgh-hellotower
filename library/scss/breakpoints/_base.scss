@@ -790,6 +790,7 @@ article {
 }
 
 .epk {
+	flex-direction: column;
 	&__content {
 		.header--links {
 				display: flex;
